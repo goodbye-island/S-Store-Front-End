@@ -1,0 +1,25 @@
+{
+  "name": "s-store-front-end",
+  "version": "1.0.0",
+  "description": "The pretty web based front end for S-Store",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodbye-island/S-Store-Front-End.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goodbye-island/S-Store-Front-End/issues"
+  },
+  "homepage": "https://github.com/goodbye-island/S-Store-Front-End#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "source-map-loader": "^0.1.5",
+    "ts-loader": "^0.8.2"
+  }
+}
