@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-
+import {Search} from "./pages/search"
 
 ReactDOM.render(
-    <div> hello world </div>,
+    <Search/>,
     document.getElementById("react")
 );
