@@ -6,7 +6,7 @@ export interface LayoutProps {
 export class Layout extends React.Component<LayoutProps, {}> {
      render() {
          return <div>
-                    <Navbar title={<img src="logo.svg" width="60px" height="60px"/>} items={["test"]}/>
+                    <Navbar title={<img src="logo.svg" height="60px"/>} items={["test"]}/>
                     {this.props.children}
                 </div>
     }
