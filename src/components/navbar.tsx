@@ -16,7 +16,7 @@ export class Navbar extends React.Component<NavbarProps, {}> {
                     <a href="/" style={{display: "inline-block", height: height}}>
                         {this.props.title}
                     </a>
-                    <ul style={{display: "block", float: "right", height: height}}>
+                    <ul style={{display: "block", float: "right", height: height,  margin: 0}}>
                     {items}
                     </ul>
                 </div>
