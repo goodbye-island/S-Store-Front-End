@@ -8,7 +8,7 @@ export interface Filter {
 }
 
 export class ClassFilterInput extends React.Component<ClassFilterInputProps, {}> {
-     render() {
+    render() {
         return  <div>
                     <input placeholder="title" onChange={(event: any) => {this.props.onChnage({title: event.target.value as string})}}/>
                 </div>

@@ -16,10 +16,10 @@
     "url": "https://github.com/goodbye-island/S-Store-Front-End/issues"
   },
   "homepage": "https://github.com/goodbye-island/S-Store-Front-End#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "source-map-loader": "^0.1.5",
-    "ts-loader": "^0.8.2"
+    "ts-loader": "^0.8.2",
+    "webpack-dev-server": "^1.16.2"
   }
 }

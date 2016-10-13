@@ -1,0 +1,11 @@
+<svg width="310" height="310" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <rect height="283" id="page" width="200" y="23" x="35" rx="2" ry="2" stroke-width="3" stroke="#002664" fill="#FFF"/>
+    <use transform="translate(10,-10)" xlink:href="#page" id="page2"/>
+    <use xlink:href="#page2" id="page2"  transform="translate(10,-10)"/>
+    <use xlink:href="#page3" transform="translate(10,-10)"/>
+
+    <text text-anchor="middle" font-family="Arvo, sans-serif" font-size="40" y="102" x="155" troke-width="0" fill="#002664">S-Store</text>
+
+
+</svg>
