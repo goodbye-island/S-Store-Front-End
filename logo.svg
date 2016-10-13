@@ -5,7 +5,7 @@
     <use xlink:href="#page" y="-20" x="20"/>
     <use xlink:href="#page" y="-30" x="30"/>
 
-    <text text-anchor="middle" font-family="Arvo, sans-serif" font-size="40" y="102" x="170" troke-width="0" fill="#002664">S-Store</text>
+    <text text-anchor="middle" font-family="Arvo, sans-serif" font-size="70" y="120" x="170" troke-width="0" fill="#002664">S-Store</text>
 
 
 </svg>
