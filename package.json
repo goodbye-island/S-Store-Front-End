@@ -4,7 +4,8 @@
   "description": "The pretty web based front end for S-Store",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --inline --content-base . --history-api-fallback"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "source-map-loader": "^0.1.5",
     "ts-loader": "^0.8.2",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "webpack": "^1.13.2"
   }
 }
