@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from 'react-router'
 
 export interface NavbarProps {
     title: string|JSX.Element,
@@ -9,13 +10,14 @@ export interface NavbarProps {
 export class Navbar extends React.Component<NavbarProps, {}> {
     render() {
         let height = this.props.height ? this.props.height:60;
-        let items = this.props.items.map(item => {
-            return <li style={{display: "block", paddingRight: 15, float: "left", height: height}}>{item}</li>
+        height = height + "px"
+        let items = this.props.items.map( (item, i) => {
+            return <li key={i} style={{display: "block", paddingRight: 15, float: "left", height: height}}>{item}</li>
         })
         return  <div style={{width: "100%", height: height, background: "#002664", color: "white"}} className="navbar">
-                    <a href="/" style={{display: "inline-block", height: height}}>
+                    <Link to="/" style={{display: "inline-block", height: height}}>
                         {this.props.title}
-                    </a>
+                    </Link>
                     <ul style={{display: "block", float: "right", height: height,  margin: 0}}>
                     {items}
                     </ul>
