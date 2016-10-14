@@ -11,7 +11,7 @@ export class Layout extends React.Component<LayoutProps, {}> {
                     <Navbar title={<img src="logo.svg" height="35"
                             style={{padding: 2.5}}/>}
                             height="40" 
-                            items={[<Link style={{padding: 7, fontSize: 30}} to="/search">Search</Link>]}
+                            items={[<Link style={{padding: 7, fontSize: 30, color: "white"}} activeStyle={{color: "red"}} to="/search">Search</Link>]}
                             />
                     <div style={{"margin": 30}}>
                         {this.props.children}
