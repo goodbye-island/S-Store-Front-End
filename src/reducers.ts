@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { Filter } from './filter'
 import { Course } from './course'
-import {SET_FILTER, SetFilterAction, ADD_COURSE, AddCourseAction} from './actions'
+import {SET_FILTER, SetFilterAction, ADD_COURSE, AddCourseAction, SET_DEPARTMENTS, SetDepartmentsAction} from './actions'
 import * as objectAssign from 'object-assign'
 /*
 state is something like
@@ -38,14 +38,24 @@ state is something like
 export interface State {
     filter: Filter,
     courses: Course[]
+    departments: { [id: number]: string}
 }
 
 export const sStore = combineReducers({
     filter,
-    courses
+    courses,
+    departments
 })
 
 
+function departments(state: { [id: number]: string} = {}, action: SetDepartmentsAction) {
+    switch(action.type) {
+        case SET_FILTER:
+            return objectAssign({}, state, action.departments);
+        default:
+            return state;
+    }
+}
 
 
 function filter(state: Filter = {}, action: SetFilterAction) {
@@ -60,7 +70,7 @@ function filter(state: Filter = {}, action: SetFilterAction) {
 
 function courses(state: Course[] = [], action: AddCourseAction) {
     switch(action.type) {
-        case ADD_COURSE:
+        case SET_DEPARTMENTS:
             return state.concat(objectAssign({}, action.course))
         default:
             return state;
