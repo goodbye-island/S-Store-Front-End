@@ -16,9 +16,9 @@ export class Search extends React.Component<SearchProps, {title: string}> {
 
         ]
         return  <div>
-                    <h1>Search for lovely things</h1>
+                    <h1>Courses</h1>
                     <div>
-                        <ClassFilterInput onChnage={ (filter) => this.setState({title: filter.title})} />
+                        <ClassFilterInput onChange={ (filter) => this.setState({title: filter.title})} />
                         <FilteredClassList classes={classes} title={this.state.title} />
                     </div>
                 </div>
