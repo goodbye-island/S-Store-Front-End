@@ -1,18 +1,8 @@
 import * as React from "react";
+import { Filter } from '../filter'
+import * as objectAssign from 'object-assign'
 
 export interface ClassFilterInputProps {onChange: (filter: Filter) => void}
-
-export interface Filter {
-    title?: string,
-    course?: number
-    department?: string,
-    section?: number,
-    semester?: number,
-    year?: number,
-    teacher?: string,
-    CRN?: number,
-    keyword?: string
-}
 
 export class ClassFilterInput extends React.Component<ClassFilterInputProps, {}> {
     state: Filter = {}
@@ -20,15 +10,15 @@ export class ClassFilterInput extends React.Component<ClassFilterInputProps, {}>
         return  <div className="FilterInput">
                     <input placeholder="title" onChange={(event: any) => {
                         this.setState({title: event.target.value});
-                        this.props.onChange(this.state);
+                        this.props.onChange(objectAssign({}, this.state, {title: event.target.value}));
                     }}/>
                     <input placeholder="Course" onChange={(event: any) => {
                         this.setState({course: parseInt(event.target.value)});
-                        this.props.onChange(this.state);
+                        this.props.onChange(objectAssign({}, this.state, {course: parseInt(event.target.value)}));
                     }}/>
                     <input placeholder="Department" onChange={(event: any) => {
                         this.setState({department: parseInt(event.target.value)});
-                        this.props.onChange(this.state);
+                        this.props.onChange(objectAssign({}, this.state, {department: parseInt(event.target.value)}));
                     }}/>
                 </div>
     }

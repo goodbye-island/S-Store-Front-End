@@ -1,6 +1,7 @@
 import * as React from "react";
 import {ClassFilterInput} from "../components/class-filter-input"
 import {FilteredClassList} from "../components/filtered-class-list"
+import { FilterSet } from "../components/filter-set"
 export interface SearchProps {}
 
 
@@ -18,8 +19,8 @@ export class Search extends React.Component<SearchProps, {title: string}> {
         return  <div>
                     <h1>Courses</h1>
                     <div>
-                        <ClassFilterInput onChange={ (filter) => this.setState({title: filter.title})} />
-                        <FilteredClassList classes={classes} title={this.state.title} />
+                        <FilterSet />
+                        <FilteredClassList />
                     </div>
                 </div>
     }
