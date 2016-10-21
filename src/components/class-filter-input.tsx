@@ -17,7 +17,7 @@ export interface Filter {
 export class ClassFilterInput extends React.Component<ClassFilterInputProps, {}> {
     state: Filter = {}
     render() {
-        return  <div>
+        return  <div className="FilterInput">
                     <input placeholder="title" onChange={(event: any) => {
                         this.setState({title: event.target.value});
                         this.props.onChange(this.state);
