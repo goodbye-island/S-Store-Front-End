@@ -25,7 +25,7 @@ store.dispatch(addCourse({
 
 store.dispatch(addCourse({
     title: "KHE",
-    course: 12312,
+    course: 12310,
     department: 1,
     section: 1,
     semester: 1,
