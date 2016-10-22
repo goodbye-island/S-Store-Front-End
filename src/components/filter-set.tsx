@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { ClassFilterInput } from './class-filter-input'
+import { CourseFilterInput } from './course-filter-input'
 import { State } from '../reducers'
 import { Filter } from '../filter'
 import { setFilter } from '../actions'
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch: any) => {
 export const FilterSet = connect(
     mapStateToProps,
     mapDispatchToProps
-)(ClassFilterInput)
+)(CourseFilterInput)

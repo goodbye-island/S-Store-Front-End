@@ -2,9 +2,9 @@ import * as React from "react";
 import { Filter } from '../filter'
 import * as objectAssign from 'object-assign'
 
-export interface ClassFilterInputProps {onChange: (filter: Filter) => void}
+export interface CourseFilterInputProps {onChange: (filter: Filter) => void}
 
-export class ClassFilterInput extends React.Component<ClassFilterInputProps, {}> {
+export class CourseFilterInput extends React.Component<CourseFilterInputProps, {}> {
     state: Filter = {}
     render() {
         return  <div className="FilterInput">

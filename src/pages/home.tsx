@@ -1,6 +1,6 @@
 import * as React from "react";
-import {ClassFilterInput} from "../components/class-filter-input"
-import {FilteredClassList} from "../components/filtered-class-list"
+import {CourseFilterInput} from "../components/course-filter-input"
+import {FilteredCourseList} from "../components/filtered-class-list"
 export interface HomeProps {}
 
 

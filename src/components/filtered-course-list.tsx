@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { State } from '../reducers'
 import { Filter } from '../filter'
 
-import {ClassList} from "./class-list"
+import {CourseList} from "./course-list"
 
 
 const mapStateToProps = (state: State) => {
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch: any) => {
   return {}
 }
 
-export const FilteredClassList = connect(
+export const FilteredCourseList = connect(
     mapStateToProps,
     mapDispatchToProps
-)(ClassList)
+)(CourseList)

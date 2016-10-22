@@ -7,11 +7,11 @@ interface CourseString extends Course {
     department_string: string
 }
 
-export interface ClassListProps {
+export interface CourseListProps {
     classes: Course[],
 }
 
-export class ClassList extends React.Component<ClassListProps, {}> {
+export class CourseList extends React.Component<CourseListProps, {}> {
      render() {
          let classes = this.props.classes.map( (c, i) => {
              return <ClassSummary key={c.title} title={c.title} professors={[c.teacher.slice()]} />
