@@ -10,7 +10,7 @@ import {CourseList} from "./course-list"
 
 const mapStateToProps = (state: State) => {
   return {
-      classes: state.courses.filter(filter(state))
+      course: state.courses.filter(filter(state))
   }
 }
 const mapDispatchToProps = (dispatch: any) => {

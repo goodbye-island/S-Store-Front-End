@@ -13,12 +13,20 @@ export class CourseFilterInput extends React.Component<CourseFilterInputProps, {
                         this.props.onChange(objectAssign({}, this.state, {title: event.target.value}));
                     }}/>
                     <input placeholder="Course" onChange={(event: any) => {
-                        this.setState({course: parseInt(event.target.value)});
-                        this.props.onChange(objectAssign({}, this.state, {course: parseInt(event.target.value)}));
+                        let course = parseInt(event.target.value);
+                        if (isNaN(course)) {
+                            course = undefined;
+                        }
+                        this.setState({course: course});
+                        this.props.onChange(objectAssign({}, this.state, {course: course}));
                     }}/>
                     <input placeholder="Department" onChange={(event: any) => {
-                        this.setState({department: parseInt(event.target.value)});
-                        this.props.onChange(objectAssign({}, this.state, {department: parseInt(event.target.value)}));
+                        let department = parseInt(event.target.value);
+                        if (isNaN(department)) {
+                            department = undefined
+                        }
+                        this.setState({department: department});
+                        this.props.onChange(objectAssign({}, this.state, {department: department}));
                     }}/>
                 </div>
     }

@@ -8,17 +8,16 @@ interface CourseString extends Course {
 }
 
 export interface CourseListProps {
-    classes: Course[],
+    course: Course[],
 }
 
 export class CourseList extends React.Component<CourseListProps, {}> {
      render() {
-         let classes = this.props.classes.map( (c, i) => {
+         let course = this.props.course.map( (c, i) => {
              return <ClassSummary key={c.title} title={c.title} professors={[c.teacher.slice()]} />
          });
-         console.log(this.props.classes);
-         return <div>
-                    {classes}
+         return <div className="course-list">
+                    {course}
                 </div>
     }
 }
