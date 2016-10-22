@@ -10,7 +10,6 @@ import {ClassList} from "./class-list"
 const mapStateToProps = (state: State) => {
   return {
       classes: state.courses.filter( (c, i) => {
-             console.log(i)
              return state.filter.title == undefined || c.title.toLowerCase().indexOf(state.filter.title.toLowerCase()) >= 0;
          })
   }

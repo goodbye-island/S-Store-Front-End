@@ -50,7 +50,7 @@ export const sStore = combineReducers({
 
 function departments(state: { [id: number]: string} = {}, action: SetDepartmentsAction) {
     switch(action.type) {
-        case SET_FILTER:
+        case SET_DEPARTMENTS:
             return objectAssign({}, state, action.departments);
         default:
             return state;
@@ -70,7 +70,7 @@ function filter(state: Filter = {}, action: SetFilterAction) {
 
 function courses(state: Course[] = [], action: AddCourseAction) {
     switch(action.type) {
-        case SET_DEPARTMENTS:
+        case ADD_COURSE:
             return state.concat(objectAssign({}, action.course))
         default:
             return state;
