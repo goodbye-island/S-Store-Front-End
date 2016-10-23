@@ -8,7 +8,7 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
-import {addCourse} from './actions'
+import {addCourse, setDepartments} from './actions'
 import { sStore } from './reducers'
 let store = createStore(sStore)
 store.dispatch(addCourse({
@@ -33,6 +33,12 @@ store.dispatch(addCourse({
     teacher: "Isaac",
     CRN: 123123,
     keyword: "Student Led Classes"
+}))
+
+store.dispatch(setDepartments({
+    0: "Computer Science",
+    1: "Biology",
+    2: "Math",
 }))
 
 ReactDOM.render(

@@ -1,8 +1,11 @@
 import * as React from "react";
 import { Filter } from '../filter'
 import * as objectAssign from 'object-assign'
-
-export interface CourseFilterInputProps {onChange: (filter: Filter) => void}
+import {DropdownStringInput} from './utilities/dropdown-string-input'
+export interface CourseFilterInputProps {
+    onChange: (filter: Filter) => void,
+    departments: { [id: number]: string}
+}
 
 export class CourseFilterInput extends React.Component<CourseFilterInputProps, {}> {
     state: Filter = {}
@@ -20,14 +23,13 @@ export class CourseFilterInput extends React.Component<CourseFilterInputProps, {
                         this.setState({course: course});
                         this.props.onChange(objectAssign({}, this.state, {course: course}));
                     }}/>
-                    <input placeholder="Department" onChange={(event: any) => {
-                        let department = parseInt(event.target.value);
-                        if (isNaN(department)) {
-                            department = undefined
+                    <DropdownStringInput onChange = {
+                        (id) => {
+                            this.setState({department: id});
+                            this.props.onChange(objectAssign({}, this.state, {department: id}));
                         }
-                        this.setState({department: department});
-                        this.props.onChange(objectAssign({}, this.state, {department: department}));
-                    }}/>
+                    } options = {
+                        Object.keys(this.props.departments).map(id => {return {id: parseInt(id), value: this.props.departments[parseInt(id)]}})}/>
                 </div>
     }
 }

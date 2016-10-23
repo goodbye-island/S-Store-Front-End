@@ -4,7 +4,9 @@ import { State } from '../reducers'
 import { Filter } from '../filter'
 import { setFilter } from '../actions'
 const mapStateToProps = (state: State) => {
-  return {}
+  return {
+    departments: state.departments
+  }
 }
 const mapDispatchToProps = (dispatch: any) => {
   return {
