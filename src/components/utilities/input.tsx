@@ -9,5 +9,8 @@ export interface InputProps{
 }
 
 export function Input(props: InputProps) {
-    return <input value={props.value} id={props.id} class={props.class} onChange={(e: any) => props.onChange(e.target.value)} />
+    return  <div className={props.class +" float-label"}>
+                <input required value={props.value} id={props.id} onChange={(e: any) => props.onChange(e.target.value)} />
+                <label> {props.label} </label>
+            </div>
 }

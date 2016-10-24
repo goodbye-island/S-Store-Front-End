@@ -1,3 +1,35 @@
 body {
     margin:  0
 }
+
+.dropdown {
+    position: absolute;
+    background: white;
+}
+
+.dropdown-input:focus + .dropdown {
+    visibility: visible;
+}
+
+.float-label {
+    position: relative;
+}
+
+.float-label > input {
+    margin: 5px;
+    margin-left: 50px
+}
+
+.float-label > label {
+    position: absolute;
+    top: 6px;
+    left: 55px;
+}
+
+.float-label > input:focus + label {
+    left: 0px;
+}
+
+.float-label > input:valid + label {
+    left: 0px;
+}

@@ -46,14 +46,15 @@ export class DropdownStringInput extends React.Component<DropdownStringInputProp
                 this.checkStatus(option.value);
             }}>{option.value}</div>
         )
-        return  <div style={{position: "relative"}} id={this.props.id} className={this.props.class} onBlur={e => this.setState({expanded: false})} onFocus={_ => this.setState({expanded: true})}>
-                    <input className="dropdown-input" value={this.state.value} onChange={(e: any) =>{
+        return  <div style={{position: "relative"}} id={this.props.id} className={this.props.class+" float-label"} onBlur={e => this.setState({expanded: false})} onFocus={_ => this.setState({expanded: true})}>
+                    <input required className="dropdown-input" value={this.state.value} onChange={(e: any) =>{
                         this.setState({value: e.target.value})
                         this.checkStatus(e.target.value)
                     }} />
+                    <label> {this.props.label} </label>
                     { (() => {
                         if (this.state.expanded) {
-                            return  <div style={{position: "absolute", top: "30px"}} className="dropdown">
+                            return  <div style={{position: "absolute", top: "30px", left: "50px"}} className="dropdown">
                                         {dropdown}
                                     </div>
                         } else {
