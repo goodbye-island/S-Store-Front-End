@@ -7,11 +7,11 @@ export interface DropdownStringInputProps extends IntInputProps{
     }[]
 }
 export class DropdownStringInput extends React.Component<DropdownStringInputProps, {}> {
-    state: {value: string};
+    state: {value: string, expanded: boolean};
     last: number = undefined
     constructor(props: DropdownStringInputProps) {
         super(props);
-        this.state = {value: props.value?props.value:""};
+        this.state = {value: props.value?props.value:"", expanded: false};
     }
 
     componentWillReceiveProps(props: DropdownStringInputProps) {
@@ -46,14 +46,20 @@ export class DropdownStringInput extends React.Component<DropdownStringInputProp
                 this.checkStatus(option.value);
             }}>{option.value}</div>
         )
-        return  <div id={this.props.id} className={this.props.class}>
+        return  <div id={this.props.id} className={this.props.class} onBlur={e => this.setState({expanded: false})} onFocus={_ => this.setState({expanded: true})}>
                     <input className="dropdown-input" value={this.state.value} onChange={(e: any) =>{
                         this.setState({value: e.target.value})
                         this.checkStatus(e.target.value)
                     }} />
-                    <div className="dropdown">
-                        {dropdown}
-                    </div>
+                    { (() => {
+                        if (this.state.expanded) {
+                            return  <div className="dropdown">
+                                        {dropdown}
+                                    </div>
+                        } else {
+                            return <div/>
+                        }
+                    })()}
                 </div>
     }
 }
