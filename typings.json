@@ -10,6 +10,7 @@
     "redux": "registry:dt/redux#3.5.2+20160703092728",
     "redux-promise": "registry:dt/redux-promise#0.5.3+20160914125120",
     "redux-thunk": "registry:dt/redux-thunk#2.1.0+20160703120921",
-    "whatwg-fetch": "registry:dt/whatwg-fetch#0.0.0+20161004182750"
+    "whatwg-fetch": "registry:dt/whatwg-fetch#0.0.0+20161004182750",
+    "whatwg-streams": "registry:dt/whatwg-streams#0.0.0+20160829180742"
   }
 }
