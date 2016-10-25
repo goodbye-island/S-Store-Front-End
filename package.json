@@ -18,10 +18,13 @@
   },
   "homepage": "https://github.com/goodbye-island/S-Store-Front-End#readme",
   "dependencies": {
+    "core-js": "^2.4.1",
     "object-assign": "^4.1.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "redux-devtools": "^3.3.1",
