@@ -10,7 +10,7 @@ export interface InputProps{
 
 export function Input(props: InputProps) {
     return  <div className={props.class +" float-label"}>
-                <input required value={props.value} id={props.id} onChange={(e: any) => props.onChange(e.target.value)} />
+                <input required value={props.value} id={props.id} onChange={(e: any) => props.onChange(e.target.value === ""?undefined:e.target.value)} />
                 <label> {props.label} </label>
             </div>
 }
