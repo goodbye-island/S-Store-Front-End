@@ -8,7 +8,7 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux'
-import {addCourse, setDepartments} from './actions'
+import {addCourse, setDepartments, update} from './actions'
 import { sStore } from './reducers'
 import thunkMiddleware from 'redux-thunk'
 
@@ -42,6 +42,8 @@ store.dispatch(setDepartments({
     1: "Biology",
     2: "Math",
 }))
+
+store.dispatch(update("http://www.catohenry.com:8080/class_view"))
 
 ReactDOM.render(
     <Provider store={store}>

@@ -10,6 +10,7 @@ export interface Filter {
     teacher?: string,
     CRN?: number,
     keyword?: string
+    [field: string]: any;
 }
 
 

@@ -71,7 +71,10 @@ function filter(state: Filter = {}, action: SetFilterAction) {
 function courses(state: Course[] = [], action: AddCourseAction) {
     switch(action.type) {
         case ADD_COURSE:
-            return state.concat(objectAssign({}, action.course))
+            if (state.some( c => c.CRN == action.course.CRN)) {
+                return state;
+            }
+            return state.concat(objectAssign({}, action.course));
         default:
             return state;
     }
