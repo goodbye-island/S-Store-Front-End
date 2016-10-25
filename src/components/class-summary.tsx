@@ -2,7 +2,8 @@ import * as React from "react";
 
 export interface ClassSummaryProps {
     title: string,
-    professors: string[]
+    professors: string[],
+    description: string,
 }
 
 export class ClassSummary extends React.Component<ClassSummaryProps, {}> {
@@ -11,7 +12,7 @@ export class ClassSummary extends React.Component<ClassSummaryProps, {}> {
          return <div>
                     <h1>{this.props.title}</h1>
                     <ul>
-                        {professors}
+                        {this.props.description}
                     </ul>
                 </div>
     }

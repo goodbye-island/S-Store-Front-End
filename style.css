@@ -25,6 +25,7 @@ body {
     position: absolute;
     top: 5px;
     left: 105px;
+    transition: 300ms left;
 }
 
 .float-label > input:focus + label {

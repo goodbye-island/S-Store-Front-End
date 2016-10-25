@@ -14,7 +14,7 @@ export interface CourseListProps {
 export class CourseList extends React.Component<CourseListProps, {}> {
      render() {
          let course = this.props.course.map( (c, i) => {
-             return <ClassSummary key={c.title} title={c.title} professors={[c.teacher.slice()]} />
+             return <ClassSummary key={c.title} title={c.title} professors={[c.teacher.slice()]} description={c.description} />
          });
          return <div className="course-list">
                     {course}

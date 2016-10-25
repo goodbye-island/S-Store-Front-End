@@ -7,5 +7,6 @@ export interface Course {
     year: number,
     teacher: string,
     CRN: number,
-    keyword: string
+    keyword: string,
+    description: string
 }

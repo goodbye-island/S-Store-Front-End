@@ -80,7 +80,9 @@ export function newFilter(filter: Filter, api: string) {
                             year: c.Year,
                             teacher: "Undefined"+c.Teacher_User_ID,
                             CRN: c.CRN,
-                            keyword: ""
+                            keyword: "",
+                            description: c.Description
+
                         }
                     ))
                 }
@@ -109,7 +111,8 @@ export function update(api: string) {
                             year: c.Year,
                             teacher: "Undefined"+c.Teacher_User_ID,
                             CRN: c.CRN,
-                            keyword: ""
+                            keyword: "",
+                            description: c.Description
                         }
                     ))
                 }
