@@ -51,7 +51,7 @@ export const sStore = combineReducers({
 function departments(state: { [id: number]: string} = {}, action: SetDepartmentsAction) {
     switch(action.type) {
         case SET_DEPARTMENTS:
-            return objectAssign({}, state, action.departments);
+            return objectAssign({}, action.departments);
         default:
             return state;
     }

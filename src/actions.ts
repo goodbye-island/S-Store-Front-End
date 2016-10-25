@@ -52,6 +52,12 @@ interface ClassDB{
     "Lab_Len": number
 }
 
+interface DeptDB {
+    "Dept_ID": 1,
+    "Dept_Title": "Computer Science",
+    "Dept_Title_Abb": "CS"
+}
+
 export function newFilter(filter: Filter, api: string) {
     let url = api + "?";
     Object.keys(filter).filter( c => c !== undefined).forEach(
@@ -86,9 +92,8 @@ export function newFilter(filter: Filter, api: string) {
 export function update(api: string) {
     let url = api;
     return function (dispatch: any) {
-        return fetch(url)
+        fetch(url+"/class_view")
         .then(response => {
-            console.log(response)
             return response.json()
         })
         .then(json =>
@@ -110,5 +115,17 @@ export function update(api: string) {
                 }
             )
         )
+
+        fetch(url+"/dept_view")
+        .then(response => response.json())
+        .then(json => {
+            let departments: { [id: number]: string} = {};
+            (json as DeptDB[]).forEach(
+                d => {
+                    departments[d.Dept_ID] = d.Dept_Title;
+                }
+            )
+            dispatch(setDepartments(departments));
+        })
     }
 }

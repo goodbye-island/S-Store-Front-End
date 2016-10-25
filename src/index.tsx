@@ -37,13 +37,7 @@ store.dispatch(addCourse({
     keyword: "Student Led Classes"
 }))
 
-store.dispatch(setDepartments({
-    0: "Computer Science",
-    1: "Biology",
-    2: "Math",
-}))
-
-store.dispatch(update("http://www.catohenry.com:8080/class_view"))
+store.dispatch(update("http://www.catohenry.com:8080"))
 
 ReactDOM.render(
     <Provider store={store}>
