@@ -3,6 +3,7 @@ import { Course } from './course'
 export const SET_FILTER = "SET_FILTER"
 export const ADD_COURSE = "ADD_COURSE"
 export const SET_DEPARTMENTS = "SET_DEPARTMENTS"
+export const GET_SEARCH_RESULT = "GOT_SEARCH_RESULT"
 
 export interface SetFilterAction extends Redux.Action{
     filter: Filter
@@ -27,3 +28,4 @@ export function addCourse(course: Course): AddCourseAction{
 export function setDepartments(departments: { [id: number]: string}): SetDepartmentsAction{
     return {type: SET_DEPARTMENTS, departments: departments}
 }
+

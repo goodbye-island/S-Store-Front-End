@@ -18,13 +18,13 @@ body {
 
 .float-label > input {
     margin: 5px;
-    margin-left: 50px
+    margin-left: 100px
 }
 
 .float-label > label {
     position: absolute;
     top: 5px;
-    left: 55px;
+    left: 105px;
 }
 
 .float-label > input:focus + label {

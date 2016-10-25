@@ -18,7 +18,11 @@ export class CourseFilterInput extends React.Component<CourseFilterInputProps, {
                         this.setState({title: title});
                         this.props.onChange(objectAssign({}, this.state, {title: title}));
                     }}/>
-                    <IntInput label="Course" onChange={course => {
+                    <Input label="Keyword" onChange={keyword => {
+                        this.setState({keyword: keyword});
+                        this.props.onChange(objectAssign({}, this.state, {keyword: keyword}));
+                    }}/>
+                    <IntInput label="Course Num" onChange={course => {
                         if (isNaN(course)) {
                             course = undefined;
                         }
@@ -31,6 +35,13 @@ export class CourseFilterInput extends React.Component<CourseFilterInputProps, {
                             this.props.onChange(objectAssign({}, this.state, {department: id}));
                         }
                     } options = {Object.keys(this.props.departments).map(id => {return {id: parseInt(id), value: this.props.departments[parseInt(id)]}})}/>
+                    <IntInput label="Semester" onChange={semester => {
+                        if (isNaN(semester)) {
+                            semester = undefined;
+                        }
+                        this.setState({semester: semester});
+                        this.props.onChange(objectAssign({}, this.state, {semester: semester}));
+                    }}/>
                     <IntInput label="Section" onChange={section => {
                         if (isNaN(section)) {
                             section = undefined;
@@ -38,28 +49,9 @@ export class CourseFilterInput extends React.Component<CourseFilterInputProps, {
                         this.setState({section: section});
                         this.props.onChange(objectAssign({}, this.state, {section: section}));
                     }}/>
-
-                    <IntInput label="Year" onChange={year => {
-                        if (isNaN(year)) {
-                            year = undefined;
-                        }
-                        this.setState({year: year});
-                        this.props.onChange(objectAssign({}, this.state, {year: year}));
-                    }}/>
                     <Input label="Teacher" onChange={teacher => {
                         this.setState({teacher: teacher});
                         this.props.onChange(objectAssign({}, this.state, {teacher: teacher}));
-                    }}/>
-                    <IntInput label="CRN" onChange={year => {
-                        if (isNaN(year)) {
-                            year = undefined;
-                        }
-                        this.setState({year: year});
-                        this.props.onChange(objectAssign({}, this.state, {year: year}));
-                    }}/>
-                    <Input label="Keyword" onChange={keyword => {
-                        this.setState({keyword: keyword});
-                        this.props.onChange(objectAssign({}, this.state, {keyword: keyword}));
                     }}/>
                 </div>
     }

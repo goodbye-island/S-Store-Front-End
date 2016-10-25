@@ -54,7 +54,7 @@ export class DropdownStringInput extends React.Component<DropdownStringInputProp
                     <label> {this.props.label} </label>
                     { (() => {
                         if (this.state.expanded) {
-                            return  <div style={{position: "absolute", top: "30px", left: "50px", zIndex: 5}} className="dropdown">
+                            return  <div style={{position: "absolute", top: "30px", left: "100px", zIndex: 5}} className="dropdown">
                                         {dropdown}
                                     </div>
                         } else {
