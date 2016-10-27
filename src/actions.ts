@@ -9,8 +9,8 @@ export interface SetFilterAction extends Redux.Action{
     filter: Filter
 }
 
-export interface AddCourseAction extends Redux.Action{
-    course: Class
+export interface AddClassAction extends Redux.Action{
+    new_class: Class
 }
 
 export interface SetDepartmentsAction extends Redux.Action{
@@ -21,8 +21,8 @@ export function setFilter(filter: Filter): SetFilterAction {
     return {type: SET_FILTER, filter: filter}
 }
 
-export function addCourse(course: Class): AddCourseAction{
-    return {type: ADD_COURSE, course: course}
+export function addClass(new_class: Class): AddClassAction{
+    return {type: ADD_COURSE, new_class: new_class}
 }
 
 export function setDepartments(departments: { [id: number]: string}): SetDepartmentsAction{
@@ -70,7 +70,7 @@ export function newFilter(filter: Filter, api: string) {
         .then(json =>
             (json as ClassDB[]).forEach(
                 c => {
-                    dispatch(addCourse(
+                    dispatch(addClass(
                         {    
                             title: c.Course_Title,
                             course: c.Class_ID,
@@ -101,7 +101,7 @@ export function update(api: string) {
         .then(json =>
             (json as ClassDB[]).forEach(
                 c => {
-                    dispatch(addCourse(
+                    dispatch(addClass(
                         {    
                             title: c.Course_Title,
                             course: c.Class_ID,

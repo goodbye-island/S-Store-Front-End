@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { Filter } from './filter'
 import { Class } from './class'
-import {SET_FILTER, SetFilterAction, ADD_COURSE, AddCourseAction, SET_DEPARTMENTS, SetDepartmentsAction} from './actions'
+import {SET_FILTER, SetFilterAction, ADD_COURSE, AddClassAction, SET_DEPARTMENTS, SetDepartmentsAction} from './actions'
 import * as objectAssign from 'object-assign'
 /*
 state is something like
@@ -68,13 +68,13 @@ function filter(state: Filter = {}, action: SetFilterAction) {
 }
 
 
-function courses(state: Class[] = [], action: AddCourseAction) {
+function courses(state: Class[] = [], action: AddClassAction) {
     switch(action.type) {
         case ADD_COURSE:
-            if (state.some( c => c.CRN == action.course.CRN)) {
+            if (state.some( c => c.CRN == action.new_class.CRN)) {
                 return state;
             }
-            return state.concat(objectAssign({}, action.course));
+            return state.concat(objectAssign({}, action.new_class));
         default:
             return state;
     }
