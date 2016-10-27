@@ -5,7 +5,7 @@ import { State } from '../reducers'
 import { Filter } from '../filter'
 import { filter } from '../filter'
 
-import {CourseList} from "./course-list"
+import {ClassList} from "./class-list"
 
 
 const mapStateToProps = (state: State) => {
@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch: any) => {
   return {}
 }
 
-export const FilteredCourseList = connect(
+export const FilteredClassList = connect(
     mapStateToProps,
     mapDispatchToProps
-)(CourseList)
+)(ClassList)

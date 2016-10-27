@@ -1,5 +1,5 @@
 import { Filter } from './filter'
-import { Course } from './course'
+import { Class } from './class'
 export const SET_FILTER = "SET_FILTER"
 export const ADD_COURSE = "ADD_COURSE"
 export const SET_DEPARTMENTS = "SET_DEPARTMENTS"
@@ -10,7 +10,7 @@ export interface SetFilterAction extends Redux.Action{
 }
 
 export interface AddCourseAction extends Redux.Action{
-    course: Course
+    course: Class
 }
 
 export interface SetDepartmentsAction extends Redux.Action{
@@ -21,7 +21,7 @@ export function setFilter(filter: Filter): SetFilterAction {
     return {type: SET_FILTER, filter: filter}
 }
 
-export function addCourse(course: Course): AddCourseAction{
+export function addCourse(course: Class): AddCourseAction{
     return {type: ADD_COURSE, course: course}
 }
 

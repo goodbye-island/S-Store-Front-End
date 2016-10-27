@@ -5,12 +5,12 @@ import {DropdownStringInput} from './utilities/dropdown-string-input'
 import {Input} from './utilities/input'
 import {IntInput} from './utilities/int-input'
 
-export interface CourseFilterInputProps {
+export interface ClassFilterInputProps {
     onChange: (filter: Filter) => void,
     departments: { [id: number]: string}
 }
 
-export class CourseFilterInput extends React.Component<CourseFilterInputProps, {}> {
+export class ClassFilterInput extends React.Component<ClassFilterInputProps, {}> {
     state: Filter = {}
     render() {
         return  <div className="FilterInput">

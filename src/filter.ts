@@ -1,4 +1,4 @@
-import { Course } from "./course"
+import { Class } from "./class"
 import {State} from "./reducers"
 export interface Filter {
     title?: string,
@@ -18,7 +18,7 @@ export function filter(state: State) {
     let filter = state.filter;
     let departments = state.departments;
 
-    return function(course: Course) {
+    return function(course: Class) {
         let title_valid = filter.title === undefined || course.title.toLowerCase().indexOf(filter.title.toLowerCase()) >= 0;
         let course_valid = filter.course === undefined || course.course === filter.course;
         let department_valid = filter.department === undefined || course.department == filter.department;

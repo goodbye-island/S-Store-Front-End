@@ -1,17 +1,17 @@
 import * as React from "react";
 import { ClassSummary } from "./class-summary"
-import {Course} from "../course"
+import {Class} from "../class"
 
-interface CourseString extends Course {
+interface ClassString extends Class {
     teacher_string: string,
     department_string: string
 }
 
-export interface CourseListProps {
-    course: Course[],
+export interface ClassListProps {
+    course: Class[],
 }
 
-export class CourseList extends React.Component<CourseListProps, {}> {
+export class ClassList extends React.Component<ClassListProps, {}> {
      render() {
          let course = this.props.course.map( (c, i) => {
              return <ClassSummary key={c.title} title={c.title} professors={[c.teacher.slice()]} description={c.description} />
