@@ -1,19 +1,14 @@
 import * as React from "react";
-
+import { CourseSummary } from "./course-summary"
+import {Class} from "../class"
 export interface ClassSummaryProps {
-    title: string,
-    professors: string[],
-    description: string,
+    class_: Class
 }
 
 export class ClassSummary extends React.Component<ClassSummaryProps, {}> {
      render() {
-         let professors = this.props.professors.map( (professor, i) => <li key={professor}>{professor}</li> )
          return <div>
-                    <h1>{this.props.title}</h1>
-                    <ul>
-                        {this.props.description}
-                    </ul>
+                    {this.props.class_.CRN}
                 </div>
     }
 }

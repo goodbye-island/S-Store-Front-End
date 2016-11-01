@@ -13,7 +13,7 @@ export class Layout extends React.Component<LayoutProps, {}> {
                             height="40" 
                             items={[<Link style={{padding: 7, fontSize: 30, color: "white"}} activeStyle={{color: "red"}} to="/search">Search</Link>]}
                             />
-                    <div style={{"margin": 30}}>
+                    <div style={{width: "70%", "margin": "0 auto"}}>
                         {this.props.children}
                     </div>
                 </div>

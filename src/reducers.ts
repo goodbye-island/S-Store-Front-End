@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { Filter } from './filter'
 import { Class } from './class'
-import {SET_FILTER, SetFilterAction, ADD_COURSE, AddClassAction, SET_DEPARTMENTS, SetDepartmentsAction} from './actions'
+import {SET_FILTER, SetFilterAction, ADD_CLASS, AddClassAction, SET_DEPARTMENTS, SetDepartmentsAction} from './actions'
 import * as objectAssign from 'object-assign'
 /*
 state is something like
@@ -37,13 +37,13 @@ state is something like
 
 export interface State {
     filter: Filter,
-    courses: Class[]
+    classes: Class[]
     departments: { [id: number]: string}
 }
 
 export const sStore = combineReducers({
     filter,
-    courses,
+    classes,
     departments
 })
 
@@ -68,9 +68,9 @@ function filter(state: Filter = {}, action: SetFilterAction) {
 }
 
 
-function courses(state: Class[] = [], action: AddClassAction) {
+function classes(state: Class[] = [], action: AddClassAction) {
     switch(action.type) {
-        case ADD_COURSE:
+        case ADD_CLASS:
             if (state.some( c => c.CRN == action.new_class.CRN)) {
                 return state;
             }

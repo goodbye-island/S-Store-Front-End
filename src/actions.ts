@@ -1,7 +1,7 @@
 import { Filter } from './filter'
 import { Class } from './class'
 export const SET_FILTER = "SET_FILTER"
-export const ADD_COURSE = "ADD_COURSE"
+export const ADD_CLASS = "ADD_CLASS"
 export const SET_DEPARTMENTS = "SET_DEPARTMENTS"
 export const GET_SEARCH_RESULT = "GOT_SEARCH_RESULT"
 
@@ -22,7 +22,7 @@ export function setFilter(filter: Filter): SetFilterAction {
 }
 
 export function addClass(new_class: Class): AddClassAction{
-    return {type: ADD_COURSE, new_class: new_class}
+    return {type: ADD_CLASS, new_class: new_class}
 }
 
 export function setDepartments(departments: { [id: number]: string}): SetDepartmentsAction{

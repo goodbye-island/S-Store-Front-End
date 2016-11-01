@@ -4,20 +4,22 @@ import { connect } from 'react-redux'
 import { State } from '../reducers'
 import { Filter } from '../filter'
 import { filter } from '../filter'
+import { to_courses } from '../class'
 
-import {ClassList} from "./class-list"
+
+import {CourseList} from "./course-list"
 
 
 const mapStateToProps = (state: State) => {
   return {
-      course: state.courses.filter(filter(state))
+      courses: to_courses(state.classes.filter(filter(state)))
   }
 }
 const mapDispatchToProps = (dispatch: any) => {
   return {}
 }
 
-export const FilteredClassList = connect(
+export const FilteredCourseList = connect(
     mapStateToProps,
     mapDispatchToProps
-)(ClassList)
+)(CourseList)
