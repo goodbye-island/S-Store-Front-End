@@ -28,7 +28,7 @@ export class Home extends React.Component<HomeProps, {}> {
                     </p>
 
                     <p>
-                        We are five students from Kent State University in the Capstone Project course for seniors to simulate a real world project with software engineering, deadlines, and teamwork. This course is taught by Augstine Samba with the lab instructor of Zhiqiang wang. To accomplish our goal we used React.js for the front end along with Node.js with NPM, Ruby on Rails for the back end, conntected to a a MySQL database. David hosted the database on his MySQL server, Tod hosted the back end on his DevServer hosted on his Windows Virtual Machine, and Isaac hosted the front end on his EnginX digital ocean virtual machine.  
+                        We are five students from Kent State University in the Capstone Project course for seniors to simulate a real world project with software engineering, deadlines, and teamwork. This course is taught by Augstine Samba with the lab instructor of Zhiqiang Wang. To accomplish our goal we used React.js for the front end along with Node.js with NPM, Ruby on Rails for the back end, conntected to a a MySQL database. David hosted the database on his MySQL server, Tod hosted the back end on his DevServer hosted on his Windows Virtual Machine, and Isaac hosted the front end on his EnginX digital ocean virtual machine.  
                     </p>
 
                     <p>
