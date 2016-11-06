@@ -4,6 +4,8 @@ export const SET_FILTER = "SET_FILTER"
 export const ADD_CLASS = "ADD_CLASS"
 export const SET_DEPARTMENTS = "SET_DEPARTMENTS"
 export const GET_SEARCH_RESULT = "GOT_SEARCH_RESULT"
+export const SET_OAUTH = "SET_OAUTH"
+export const SET_USER = "SET_OAUTH"
 
 export interface SetFilterAction extends Redux.Action{
     filter: Filter
@@ -119,7 +121,7 @@ export function update(api: string) {
             )
         )
 
-        fetch(url+"/dept_view")
+        fetch(url+"/department_view")
         .then(response => response.json())
         .then(json => {
             let departments: { [id: number]: string} = {};

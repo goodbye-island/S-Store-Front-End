@@ -11,7 +11,7 @@ const mapStateToProps = (state: State) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     onChange: (filter: Filter) => {
-      dispatch(newFilter(filter, "http://www.catohenry.com:8080/class_view"))
+      dispatch(newFilter(filter, "http://isaacpark.me:8080/:8080/class_view"))
     }
   }
 }
