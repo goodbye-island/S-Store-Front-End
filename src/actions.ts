@@ -5,7 +5,7 @@ export const ADD_CLASS = "ADD_CLASS"
 export const SET_DEPARTMENTS = "SET_DEPARTMENTS"
 export const GET_SEARCH_RESULT = "GOT_SEARCH_RESULT"
 export const SET_OAUTH = "SET_OAUTH"
-export const SET_USER = "SET_OAUTH"
+export const SET_USER = "SET_USER"
 
 export interface SetFilterAction extends Redux.Action{
     filter: Filter
@@ -19,6 +19,11 @@ export interface SetDepartmentsAction extends Redux.Action{
     departments: { [id: number]: string}
 }
 
+export interface SetOauthAction extends Redux.Action{
+    token: string,
+    expiration: Date,
+}
+
 export function setFilter(filter: Filter): SetFilterAction {
     return {type: SET_FILTER, filter: filter}
 }
@@ -29,6 +34,10 @@ export function addClass(new_class: Class): AddClassAction{
 
 export function setDepartments(departments: { [id: number]: string}): SetDepartmentsAction{
     return {type: SET_DEPARTMENTS, departments: departments}
+}
+
+export function setOauth(token: string, expiration: Date): SetOauthAction {
+    return {type: SET_OAUTH, "token": token, "expiration": expiration}
 }
 
 
@@ -121,7 +130,7 @@ export function update(api: string) {
             )
         )
 
-        fetch(url+"/department_view")
+        fetch(url+"department_view")
         .then(response => response.json())
         .then(json => {
             let departments: { [id: number]: string} = {};

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { Filter } from './filter'
 import { Class } from './class'
-import {SET_FILTER, SetFilterAction, ADD_CLASS, AddClassAction, SET_DEPARTMENTS, SetDepartmentsAction} from './actions'
+import {SET_FILTER, SetFilterAction, ADD_CLASS, AddClassAction, SET_DEPARTMENTS, SetDepartmentsAction, SET_OAUTH} from './actions'
 import * as objectAssign from 'object-assign'
 /*
 state is something like
@@ -35,17 +35,44 @@ state is something like
 }
 */
 
+enum Roles {
+    student,
+    teacher,
+    department_head,
+    admin
+}
+
+interface user {
+        google_oauth?: {
+            token: string,
+            expiration: Date,
+        },
+        role: Roles,
+        user_id: number
+    }
+
 export interface State {
     filter: Filter,
-    classes: Class[]
-    departments: { [id: number]: string}
+    classes: Class[],
+    departments: { [id: number]: string},
+    user: user
 }
 
 export const sStore = combineReducers({
     filter,
     classes,
-    departments
+    departments,
+    user
 })
+
+function user(state: user = {google_oauth: null, role: Roles.student, user_id: undefined}, action: any) {
+    switch (action.type){
+        case SET_OAUTH:
+            return objectAssign({}, action.oauth);
+        default:
+            return state;
+    }
+}
 
 
 function departments(state: { [id: number]: string} = {}, action: SetDepartmentsAction) {
