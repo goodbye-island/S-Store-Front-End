@@ -35,3 +35,16 @@ body {
 .float-label > input:valid + label {
     left: 0px;
 }
+
+.course > h1 {
+    cursor: pointer;
+    transition: transform 200ms;
+}
+
+.course > h1:hover {
+    transform: translate(-2px, 2px)
+}
+
+.course.expanded > h1 {
+    transform: translate(-2px, 2px)
+}
