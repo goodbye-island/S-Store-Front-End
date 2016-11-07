@@ -9,6 +9,7 @@ export interface Class {
     CRN: number,
     keyword: string,
     description: string
+    days: boolean[]
 }
 
 

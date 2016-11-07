@@ -82,7 +82,8 @@ export function newFilter(filter: Filter, api: string) {
             (json as ClassDB[]).forEach(
                 c => {
                     dispatch(addClass(
-                        {    
+                        {   
+                            days: [c.Class_Day.includes('U'), c.Class_Day.includes('M'), c.Class_Day.includes('T'), c.Class_Day.includes('W'), c.Class_Day.includes('Th'), c.Class_Day.includes('F'), c.Class_Day.includes('S')],
                             title: c.Course_Title,
                             course: c.Class_ID,
                             department: c.Dept_ID,
@@ -114,6 +115,7 @@ export function update(api: string) {
                 c => {
                     dispatch(addClass(
                         {    
+                            days: [c.Class_Day.includes('U'), c.Class_Day.includes('M'), c.Class_Day.includes('T'), c.Class_Day.includes('W'), c.Class_Day.includes('Th'), c.Class_Day.includes('F'), c.Class_Day.includes('S')],
                             title: c.Course_Title,
                             course: c.Class_ID,
                             department: c.Dept_ID,
