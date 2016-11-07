@@ -2,6 +2,7 @@ import * as React from "react";
 import {Class, Course} from "../class"
 import {Toggle} from "./utilities/toggle"
 import {ClassList} from "./class-list"
+import {Department} from "./department"
 export interface CourseSummaryProps {
     classes: Class[],
     course: Course
@@ -10,13 +11,18 @@ export interface CourseSummaryProps {
 export class CourseSummary extends React.Component<CourseSummaryProps, {}> {
     state: {expanded: boolean} = {expanded: false};
     render() {
-        return  <div style={{width: "100%"}}>
-                    <h1 style={{textAlign: "center"}} onClick={() => this.setState({expanded: !this.state.expanded}) }> {this.props.course.title}</h1>
+        return  <div className="course">
+                    <h1 onClick={ () => this.setState({"expanded": !this.state.expanded}) }>
+                        <span className="title">{this.props.course.title} </span>
+                        <span className="department-acronym"><Department departmentID={this.props.course.department}/></span>
+                         
+                        <span className="course-number">{this.props.course.course}</span>
+                    </h1>
                     <Toggle expanded={this.state.expanded}>
-                        <div style={{width: "50%", float: "left"}}>
+                        <div className="description">
                             {this.props.course.description}
                         </div>
-                        <div style={{width: "50%", float: "right"}}>
+                        <div className="classes">
                             <ClassList classes={this.props.classes}/>
                         </div>
                     </Toggle>

@@ -16,7 +16,7 @@ export interface AddClassAction extends Redux.Action{
 }
 
 export interface SetDepartmentsAction extends Redux.Action{
-    departments: { [id: number]: string}
+    departments: { [id: number]: {title: string, abbreviation: string}}
 }
 
 export interface SetOauthAction extends Redux.Action{
@@ -32,7 +32,7 @@ export function addClass(new_class: Class): AddClassAction{
     return {type: ADD_CLASS, new_class: new_class}
 }
 
-export function setDepartments(departments: { [id: number]: string}): SetDepartmentsAction{
+export function setDepartments(departments: { [id: number]: {title: string, abbreviation: string}}): SetDepartmentsAction{
     return {type: SET_DEPARTMENTS, departments: departments}
 }
 
@@ -135,10 +135,10 @@ export function update(api: string) {
         fetch(url+"department_view")
         .then(response => response.json())
         .then(json => {
-            let departments: { [id: number]: string} = {};
+            let departments: { [id: number]: {title: string, abbreviation: string}} = {};
             (json as DeptDB[]).forEach(
                 d => {
-                    departments[d.Dept_ID] = d.Dept_Title;
+                    departments[d.Dept_ID] = {title: d.Dept_Title, abbreviation: d.Dept_Title_Abb};
                 }
             )
             dispatch(setDepartments(departments));

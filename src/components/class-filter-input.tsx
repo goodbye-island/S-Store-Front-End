@@ -7,7 +7,7 @@ import {IntInput} from './utilities/int-input'
 
 export interface ClassFilterInputProps {
     onChange: (filter: Filter) => void,
-    departments: { [id: number]: string}
+    departments: { [id: number]: {title: string, abbreviation: string}}
 }
 
 export class ClassFilterInput extends React.Component<ClassFilterInputProps, {}> {
@@ -34,7 +34,7 @@ export class ClassFilterInput extends React.Component<ClassFilterInputProps, {}>
                             this.setState({department: id});
                             this.props.onChange(objectAssign({}, this.state, {department: id}));
                         }
-                    } options = {Object.keys(this.props.departments).map(id => {return {id: parseInt(id), value: this.props.departments[parseInt(id)]}})}/>
+                    } options = {Object.keys(this.props.departments).map(id => {return {id: parseInt(id), value: this.props.departments[parseInt(id)].title}})}/>
                     <IntInput label="Semester" onChange={semester => {
                         if (isNaN(semester)) {
                             semester = undefined;

@@ -7,7 +7,7 @@ export interface SearchProps {}
 export class Search extends React.Component<SearchProps, {title: string}> {
     state: {title: string} = {title: undefined}
     render() {
-        return  <div>
+        return  <div className="seach">
                     <h1>Courses</h1>
                     <div>
                         <FilterSet />

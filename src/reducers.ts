@@ -54,7 +54,7 @@ interface user {
 export interface State {
     filter: Filter,
     classes: Class[],
-    departments: { [id: number]: string},
+    departments: { [id: number]: {title: string, abbreviation: string}},
     user: user
 }
 
