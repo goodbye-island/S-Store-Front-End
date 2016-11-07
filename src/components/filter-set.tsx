@@ -3,6 +3,7 @@ import { ClassFilterInput } from './class-filter-input'
 import { State } from '../reducers'
 import { Filter } from '../filter'
 import { newFilter } from '../actions'
+import config from "../config"
 const mapStateToProps = (state: State) => {
   return {
     departments: state.departments
@@ -11,7 +12,7 @@ const mapStateToProps = (state: State) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     onChange: (filter: Filter) => {
-      dispatch(newFilter(filter, "http://isaacpark.me:8080/:8080/class_view"))
+      dispatch(newFilter(filter, config + "/class_view"))
     }
   }
 }

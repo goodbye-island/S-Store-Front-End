@@ -120,7 +120,7 @@ export function update(api: string) {
             )
         )
 
-        fetch(url+"department_view")
+        fetch(url+"/department_view")
         .then(response => response.json())
         .then(json => {
             let departments: { [id: number]: {title: string, abbreviation: string}} = {};
