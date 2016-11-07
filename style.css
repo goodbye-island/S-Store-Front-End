@@ -48,3 +48,7 @@ body {
 .course.expanded > h1 {
     transform: translate(-2px, 2px)
 }
+
+.search .course-list {
+    margin-top: 100px;
+}
