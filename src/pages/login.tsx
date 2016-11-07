@@ -34,7 +34,7 @@ export class Login extends React.Component<LoginProps, {email: string}> {
                     <form style={{"width": "10%", "margin": "0 auto"}} onSubmit={ e => {
                         e.preventDefault()
                         console.log(this.state.email)
-                        login(this.state.email, "/")
+                        login("/", this.state.email)
                         this.setState({email: ""})
                     }}>
                         <Input value={this.state.email} onChange={s => this.setState({email: s})} label="Email" />

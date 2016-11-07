@@ -1,5 +1,5 @@
 
-export function login(email: string, page: string, oauth_api?: string, client_id?: string) {
+export function login(page: string, email?: string, oauth_api?: string, client_id?: string) {
     if (oauth_api === undefined) {
         oauth_api = "https://accounts.google.com/o/oauth2/v2/auth";
     }
