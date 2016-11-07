@@ -69,6 +69,23 @@ interface DeptDB {
     "Dept_Title_Abb": "CS"
 }
 
+function db_to_class(c: ClassDB): Class {
+    return {
+        days: [c.Class_Day.includes('U'), c.Class_Day.includes('M'), c.Class_Day.includes('T'), c.Class_Day.includes('W'), c.Class_Day.includes('Th'), c.Class_Day.includes('F'), c.Class_Day.includes('S')],
+        title: c.Course_Title,
+        course: c.Class_ID,
+        department: c.Dept_ID,
+        section: c.Section,
+        semester: c.Term_ID,
+        year: c.Year,
+        teacher: "Undefined"+c.Teacher_User_ID,
+        CRN: c.CRN,
+        keyword: "",
+        description: c.Description,
+        syllabus: c.Syl_ID
+    }
+}
+
 export function newFilter(filter: Filter, api: string) {
     let url = api + "?";
     Object.keys(filter).filter( c => c !== undefined).forEach(
@@ -81,22 +98,7 @@ export function newFilter(filter: Filter, api: string) {
         .then(json =>
             (json as ClassDB[]).forEach(
                 c => {
-                    dispatch(addClass(
-                        {   
-                            days: [c.Class_Day.includes('U'), c.Class_Day.includes('M'), c.Class_Day.includes('T'), c.Class_Day.includes('W'), c.Class_Day.includes('Th'), c.Class_Day.includes('F'), c.Class_Day.includes('S')],
-                            title: c.Course_Title,
-                            course: c.Class_ID,
-                            department: c.Dept_ID,
-                            section: c.Section,
-                            semester: c.Term_ID,
-                            year: c.Year,
-                            teacher: "Undefined"+c.Teacher_User_ID,
-                            CRN: c.CRN,
-                            keyword: "",
-                            description: c.Description
-
-                        }
-                    ))
+                    dispatch(addClass(db_to_class(c)))
                 }
             )
         )
@@ -113,21 +115,7 @@ export function update(api: string) {
         .then(json =>
             (json as ClassDB[]).forEach(
                 c => {
-                    dispatch(addClass(
-                        {    
-                            days: [c.Class_Day.includes('U'), c.Class_Day.includes('M'), c.Class_Day.includes('T'), c.Class_Day.includes('W'), c.Class_Day.includes('Th'), c.Class_Day.includes('F'), c.Class_Day.includes('S')],
-                            title: c.Course_Title,
-                            course: c.Class_ID,
-                            department: c.Dept_ID,
-                            section: c.Section,
-                            semester: c.Term_ID,
-                            year: c.Year,
-                            teacher: "Undefined"+c.Teacher_User_ID,
-                            CRN: c.CRN,
-                            keyword: "",
-                            description: c.Description
-                        }
-                    ))
+                    dispatch(addClass(db_to_class(c)))
                 }
             )
         )

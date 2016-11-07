@@ -10,6 +10,7 @@ export interface Class {
     keyword: string,
     description: string
     days: boolean[]
+    syllabus: number
 }
 
 
