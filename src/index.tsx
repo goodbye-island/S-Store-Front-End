@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import {Search} from "./pages/search"
 import {Login} from "./pages/login"
-import {Home} from "./pages/home"
+import {About} from "./pages/about"
 
 import {Layout} from "./components/layout"
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
@@ -21,9 +21,9 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" component={Layout}>
-                <Route path="/search" component={Search}/>
+                <Route path="/about" component={About}/>
                 <Route path="/login" component={Login}/>
-                <IndexRoute component={Home}/>
+                <IndexRoute component={Search}/>
             </Route>
         </Router>
     </Provider>,

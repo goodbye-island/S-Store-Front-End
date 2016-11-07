@@ -1,8 +1,8 @@
 import * as React from "react";
-export interface HomeProps {}
+export interface AboutProps {}
 
 
-export class Home extends React.Component<HomeProps, {}> {
+export class About extends React.Component<AboutProps, {}> {
     state: {title: string} = {title: undefined}
     render() {
         return  <div style={{
