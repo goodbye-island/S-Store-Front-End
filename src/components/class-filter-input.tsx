@@ -13,7 +13,7 @@ export interface ClassFilterInputProps {
 export class ClassFilterInput extends React.Component<ClassFilterInputProps, {}> {
     state: Filter = {}
     render() {
-        return  <div className="FilterInput">
+        return  <div className="filter">
                     <Input label="Title" onChange={title => {
                         this.setState({title: title});
                         this.props.onChange(objectAssign({}, this.state, {title: title}));
