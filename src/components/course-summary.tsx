@@ -16,8 +16,8 @@ export class CourseSummary extends React.Component<CourseSummaryProps, {}> {
                         <span className="department-acronym"><Department departmentID={this.props.course.department}/></span>
                         <span> </span>
                         <span className="course-number">{this.props.course.course}</span>
-                        <span> </span>
-                        <span className="title">{this.props.course.title} </span>
+                        <span>: </span>
+                        <span className="title">{this.props.course.title}</span>
                     </h1>
                     <Toggle expanded={this.state.expanded}>
                         <div className="description">
