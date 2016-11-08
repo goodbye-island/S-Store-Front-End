@@ -25,6 +25,12 @@ export class ClassSummary extends React.Component<ClassSummaryProps, {}> {
                     <td>
                         <Week days={this.props.class_.days}/>
                     </td>
+                    <td>
+                        {this.props.class_.time.toLocaleTimeString()}
+                    </td>
+                    <td>
+                        {Math.floor(this.props.class_.length/60)}:{("0" + this.props.class_.length%60).slice(-2)}
+                    </td>
                 </tr>
     }
 }

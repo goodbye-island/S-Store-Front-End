@@ -90,7 +90,9 @@ function db_to_class(c: ClassDB): Class {
         CRN: c.CRN,
         keyword: "",
         description: c.Description,
-        syllabus: c.Syl_ID
+        syllabus: c.Syl_ID,
+        time: new Date(c.Day_Time),
+        length: c.Day_Len,
     }
 }
 

@@ -1,3 +1,14 @@
+
+export enum Days {
+    sun = 1,
+    mon = 2,
+    tue = 3,
+    wed = 4,
+    thu = 5,
+    fri = 6,
+    sat = 7,
+}
+
 export interface Class {
     title: string,
     course: number
@@ -19,6 +30,11 @@ export interface Class {
         sat: boolean
     }
     syllabus: number
+    time: Date
+    length: number
+    lab_day?: Days
+    lab_time?: Date
+    lab_length?: number
 }
 
 

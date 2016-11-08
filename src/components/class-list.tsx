@@ -17,12 +17,18 @@ export class ClassList extends React.Component<ClassListProps, {}> {
              return <ClassSummary key={c.title} class_={c} />
          });
          return <table className="class-list">
-                    <tr>
-                        <th>Section</th>
-                        <th>CRN</th>
-                        <th>Days</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>CRN</th>
+                            <th>Days</th>
+                            <th>Time</th>
+                            <th>Length</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     {classes}
+                    </tbody>
                 </table>
     }
 }

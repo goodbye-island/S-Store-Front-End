@@ -54,7 +54,7 @@ body {
 }
 
 .week {
-
+    display: inline-block;
 }
 
 .week .inuse,.week .free {
