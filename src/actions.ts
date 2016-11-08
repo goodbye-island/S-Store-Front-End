@@ -86,6 +86,7 @@ function db_to_class(c: ClassDB): Class {
         section: c.Section,
         semester: c.Term_ID,
         year: c.Year,
+        term: c.Term,
         teacher: "Undefined"+c.Teacher_User_ID,
         CRN: c.CRN,
         keyword: "",

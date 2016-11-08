@@ -15,6 +15,7 @@ export interface Class {
     department: number,
     section: number,
     semester: number,
+    term: string
     year: number,
     teacher: string,
     CRN: number,
