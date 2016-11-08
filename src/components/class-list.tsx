@@ -20,6 +20,7 @@ export class ClassList extends React.Component<ClassListProps, {}> {
                     <thead>
                         <tr>
                             <th>Section</th>
+                            <th>Semester</th>
                             <th>CRN</th>
                             <th>Days</th>
                             <th>Time</th>

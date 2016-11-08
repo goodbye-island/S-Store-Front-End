@@ -20,6 +20,9 @@ export class ClassSummary extends React.Component<ClassSummaryProps, {}> {
                         {this.props.class_.section}
                     </td>
                     <td>
+                        {this.props.class_.term} {this.props.class_.year}
+                    </td>
+                    <td>
                         {this.props.class_.CRN}
                     </td>
                     <td>
