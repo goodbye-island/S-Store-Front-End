@@ -16,8 +16,12 @@ export class ClassList extends React.Component<ClassListProps, {}> {
          let classes = this.props.classes.map( (c, i) => {
              return <ClassSummary key={c.title} class_={c} />
          });
-         return <div className="class-list">
+         return <table className="class-list">
+                    <tr>
+                        <th>Section</th>
+                        <th>CRN</th>
+                    </tr>
                     {classes}
-                </div>
+                </table>
     }
 }
