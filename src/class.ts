@@ -9,7 +9,15 @@ export interface Class {
     CRN: number,
     keyword: string,
     description: string
-    days: boolean[]
+    days: {
+        sun: boolean,
+        mon: boolean,
+        tue: boolean,
+        wed: boolean,
+        thu: boolean,
+        fri: boolean,
+        sat: boolean
+    }
     syllabus: number
 }
 

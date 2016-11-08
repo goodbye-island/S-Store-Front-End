@@ -71,7 +71,15 @@ interface DeptDB {
 
 function db_to_class(c: ClassDB): Class {
     return {
-        days: [c.Class_Day.includes('U'), c.Class_Day.includes('M'), c.Class_Day.includes('T'), c.Class_Day.includes('W'), c.Class_Day.includes('Th'), c.Class_Day.includes('F'), c.Class_Day.includes('S')],
+        days: {
+                sun:  c.Class_Day.includes('Su'),
+                mon: c.Class_Day.includes("M"),
+                tue: c.Class_Day.includes("T"),
+                wed: c.Class_Day.includes("W"),
+                thu: c.Class_Day.includes("Th"),
+                fri: c.Class_Day.includes("F"),
+                sat: c.Class_Day.includes("S"),
+            },
         title: c.Course_Title,
         course: c.Class_ID,
         department: c.Dept_ID,

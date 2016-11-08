@@ -52,3 +52,26 @@ body {
 .search .course-list {
     margin-top: 100px;
 }
+
+.week {
+
+}
+
+.week .inuse,.week .free {
+    display: inline-block;
+    margin: 1px;
+    padding: 2px;
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    font-size: 10px;
+    border: solid black 1px;
+    text-align: center;
+    border-radius: 100%
+}
+
+.week .inuse {
+    font-weight: bold;
+    color: white;
+    background-color: black
+}
