@@ -8,21 +8,23 @@ export interface ClassSummaryProps {
 }
 
 export class ClassSummary extends React.Component<ClassSummaryProps, {}> {
-    render_inside() {
-        return  <tr className="class">
+    render() {
+        return <tr className={"class" + (this.props.class_.syllabus?" link":"")} onClick = { () => {
+            if (!this.props.class_.syllabus) {
+                console.warn("there isn't a syllabus for " + this.props.class_.CRN)
+                return;
+            }
+            location.assign(config.api + "/syllabus_view?SyllaID=" + this.props.class_.syllabus)
+        }}>
                     <td>
                         {this.props.class_.section}
                     </td>
                     <td>
                         {this.props.class_.CRN}
                     </td>
+                    <td>
+                        <Week days={this.props.class_.days}/>
+                    </td>
                 </tr>
-    }
-    render() {
-        if (this.props.class_.syllabus === null) {
-            return this.render_inside()
-        } else {
-            return <a href={config.api + "/syllabus_view?SyllaID=" + this.props.class_.syllabus}> {this.render_inside()} </a>
-        }
     }
 }

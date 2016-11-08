@@ -75,3 +75,25 @@ body {
     color: white;
     background-color: black
 }
+
+td {
+    padding: 10px;
+}
+
+th {
+    padding-bottom: 15px;
+}
+
+.course .description {
+    width: 50%;
+    float: left;
+}
+
+.course .course-list {
+    width: 50%;
+    float: right;
+}
+
+.link {
+    cursor: pointer;
+}
