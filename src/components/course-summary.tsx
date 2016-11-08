@@ -3,6 +3,7 @@ import {Class, Course} from "../class"
 import {Toggle} from "./utilities/toggle"
 import {ClassList} from "./class-list"
 import {Department} from "./department"
+import {Week} from "./week"
 export interface CourseSummaryProps {
     classes: Class[],
     course: Course
@@ -18,6 +19,13 @@ export class CourseSummary extends React.Component<CourseSummaryProps, {}> {
                         <span className="course-number">{this.props.course.course}</span>
                         <span>: </span>
                         <span className="title">{this.props.course.title}</span>
+                        <Week days={this.props.course.classes.reduce( (last, class_) => {
+                            let result: any = last;
+                            for (let day in last) {
+                                result[day] = result[day] || (class_.days as any)[day];
+                            }
+                            return  result;
+                        }, {sun: false,mon: false,tue: false,wed: false,thu: false,fri: false,sat: false})}/>
                     </h1>
                     <Toggle expanded={this.state.expanded}>
                         <div className="description">
