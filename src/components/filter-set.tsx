@@ -12,7 +12,7 @@ const mapStateToProps = (state: State) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     onChange: (filter: Filter) => {
-      dispatch(newFilter(filter, config + "/class_view"))
+      dispatch(newFilter(filter, config.api + "/class_view"))
     }
   }
 }
