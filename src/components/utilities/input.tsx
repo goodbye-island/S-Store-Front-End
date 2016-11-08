@@ -8,9 +8,18 @@ export interface InputProps{
     value?: string
 }
 
+let last_id = 0;
+
 export function Input(props: InputProps) {
+    let id  = "";
+    if (!props.id) {
+        id = "input" + last_id;
+        last_id+=1;
+    } else {
+        id = props.id
+    }
     return  <div className={props.class +" float-label"}>
-                <input required value={props.value} id={props.id} onChange={(e: any) => props.onChange(e.target.value)} />
-                <label> {props.label} </label>
+                <input required value={props.value} id={id} onChange={(e: any) => props.onChange(e.target.value)} />
+                <label htmlFor={id}> {props.label} </label>
             </div>
 }

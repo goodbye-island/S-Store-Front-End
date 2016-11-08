@@ -6,6 +6,8 @@ export interface DropdownStringInputProps extends IntInputProps{
         id: number
     }[]
 }
+
+let last_id = 0
 export class DropdownStringInput extends React.Component<DropdownStringInputProps, {}> {
     state: {value: string, expanded: boolean};
     last: number = undefined
@@ -46,14 +48,22 @@ export class DropdownStringInput extends React.Component<DropdownStringInputProp
                 this.checkStatus(option.value);
             }}>{option.value}</div>
         )
-        return  <div style={{position: "relative"}} id={this.props.id} className={this.props.class+" float-label"} onBlur={e => this.setState({expanded: false})} onFocus={_ => this.setState({expanded: true})}>
-                    <input required className="dropdown-input" value={this.state.value} onChange={(e: any) =>{
+
+        let id  = "";
+        if (!this.props.id) {
+            id = "dropdown_input" + last_id;
+            last_id+=1;
+        } else {
+            id = this.props.id
+        }
+        return  <div style={{position: "relative"}} className={this.props.class+" float-label"} onFocus={_ => this.setState({expanded: true})}>
+                    <input required className="dropdown-input" id={id} value={this.state.value} onChange={(e: any) =>{
                         this.setState({value: e.target.value})
                         this.checkStatus(e.target.value)
                     }} />
-                    <label> {this.props.label} </label>
+                    <label htmlFor={id} > {this.props.label} </label>
                     { (() => {
-                        if (this.state.expanded || true) {
+                        if (this.state.expanded) {
                             return  <div style={{position: "absolute", zIndex: 1}} className="dropdown">
                                         {dropdown}
                                     </div>
