@@ -5,10 +5,7 @@ export interface AboutProps {}
 export class About extends React.Component<AboutProps, {}> {
     state: {title: string} = {title: undefined}
     render() {
-        return  <div style={{
-                    width: "60%",
-                    margin: "0 auto"
-                    }}>
+        return  <div>
 
                      <div style={{
                      fontSize: "60px",
