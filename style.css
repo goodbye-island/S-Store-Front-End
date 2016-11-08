@@ -5,7 +5,17 @@ body {
 
 .dropdown {
     position: absolute;
-    background: white;
+    font-size: 13.3333px;
+    top: 29px;
+    max-height: 30em;
+    overflow: auto;
+    width: 300px;
+    background-color: rgb(212, 212, 212);
+    padding: 7px;
+}
+.float-label {
+    font-size: 13.3333px;
+    margin: 5px;
 }
 
 .dropdown-input:focus + .dropdown {
@@ -17,23 +27,25 @@ body {
 }
 
 .float-label > input {
-    margin: 5px;
-    margin-left: 100px
+    padding: 5px;
+    border-radius: 2px;
+    width: 300px;
+    box-sizing: content-box;
 }
 
 .float-label > label {
     position: absolute;
     top: 5px;
-    left: 105px;
-    transition: 300ms left;
+    left: 10px;
+    transition: 140ms top;
 }
 
 .float-label > input:focus + label {
-    left: 0px;
+    top: -20px;
 }
 
 .float-label > input:valid + label {
-    left: 0px;
+    top: -20px;
 }
 
 .course > h1 {
@@ -96,4 +108,9 @@ th {
 
 .link {
     cursor: pointer;
+}
+
+.filter .float-label {
+    margin-top: 20px;
+    display: inline-block;
 }
