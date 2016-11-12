@@ -14,6 +14,11 @@ export class DropdownStringInput extends React.Component<DropdownStringInputProp
     constructor(props: DropdownStringInputProps) {
         super(props);
         this.state = {value: props.value?props.value:"", expanded: false};
+
+        window.onclick = (event) => {
+            console.log(event)
+            this.setState({expanded: false});
+        }
     }
 
     componentWillReceiveProps(props: DropdownStringInputProps) {
@@ -60,7 +65,7 @@ export class DropdownStringInput extends React.Component<DropdownStringInputProp
                     <input required className="dropdown-input" id={id} value={this.state.value} onChange={(e: any) =>{
                         this.setState({value: e.target.value})
                         this.checkStatus(e.target.value)
-                    }} />
+                    }} onClick={e => e.stopPropagation()}/>
                     <label htmlFor={id} > {this.props.label} </label>
                     { (() => {
                         if (this.state.expanded) {
