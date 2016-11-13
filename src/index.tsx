@@ -9,13 +9,14 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux'
-import {addClass, setDepartments, update} from './actions'
-import { sStore } from './reducers'
+import {addClass, setDepartments, update, setUserAction} from './actions'
+import { sStore, Roles } from './reducers'
 import config from "./config"
 import thunkMiddleware from 'redux-thunk'
 
 let store = createStore(sStore, applyMiddleware(thunkMiddleware))
 
+store.dispatch(setUserAction(Roles.admin, "", "", "", undefined))
 
 
 store.dispatch(update(config.api))

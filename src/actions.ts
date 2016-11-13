@@ -1,5 +1,6 @@
 import { Filter } from './filter'
 import { Class } from './class'
+import { Roles } from './reducers'
 export const SET_FILTER = "SET_FILTER"
 export const ADD_CLASS = "ADD_CLASS"
 export const SET_DEPARTMENTS = "SET_DEPARTMENTS"
@@ -24,6 +25,15 @@ export interface SetOauthAction extends Redux.Action{
     expiration: Date,
 }
 
+export interface SetUserAction extends Redux.Action{
+    role: Roles,
+    firstName: string,
+    lastName: string
+    honorific: string
+    userId: number
+}
+
+
 export function setFilter(filter: Filter): SetFilterAction {
     return {type: SET_FILTER, filter: filter}
 }
@@ -40,6 +50,9 @@ export function setOauth(token: string, expiration: Date): SetOauthAction {
     return {type: SET_OAUTH, "token": token, "expiration": expiration}
 }
 
+export function setUserAction(role: Roles, firstName: string, lastName: string, honorific: string, userID: number): SetUserAction {
+    return {type: SET_USER, "role": role, firstName: firstName, lastName: lastName, honorific: honorific, userId: userID }
+}
 
 interface ClassDB{
     "Class_ID": number,

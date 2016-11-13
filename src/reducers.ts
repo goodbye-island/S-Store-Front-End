@@ -1,40 +1,8 @@
 import { combineReducers } from 'redux'
 import { Filter } from './filter'
 import { Class } from './class'
-import {SET_FILTER, SetFilterAction, ADD_CLASS, AddClassAction, SET_DEPARTMENTS, SetDepartmentsAction, SET_OAUTH} from './actions'
+import {SET_FILTER, SetFilterAction, ADD_CLASS, AddClassAction, SET_DEPARTMENTS, SetDepartmentsAction, SET_OAUTH, SetOauthAction, SET_USER, SetUserAction} from './actions'
 import * as objectAssign from 'object-assign'
-/*
-state is something like
-
-{
-    filter: {
-        title?: string,
-        course?: number
-        department?: string,
-        section?: number,
-        semester?: number,
-        year?: number,
-        teacher?: string,
-        CRN?: number,
-        keyword?: string
-    }
-
-    courses: [
-        {
-            title: string,
-            course: number
-            department: number,
-            section: number,
-            semester: number,
-            year: number,
-            teacher: string,
-            CRN: number,
-            keyword: string
-        }
-    ]
-}
-*/
-
 export enum Roles {
     student,
     teacher,
@@ -43,12 +11,15 @@ export enum Roles {
 }
 
 export interface User {
-        google_oauth?: {
+        googleOauth?: {
             token: string,
             expiration: Date,
         },
         role: Roles,
-        user_id: number
+        firstName: string,
+        lastName: string
+        honorific: string
+        userId: number
     }
 
 export interface State {
@@ -65,10 +36,12 @@ export const sStore = combineReducers({
     user
 })
 
-function user(state: User = {google_oauth: null, role: Roles.student, user_id: undefined}, action: any) {
+function user(state: User = {googleOauth: null, role: Roles.student, userId: undefined, firstName: undefined, lastName: undefined, honorific: undefined}, action: SetOauthAction|SetUserAction): User {
     switch (action.type){
         case SET_OAUTH:
-            return objectAssign({}, action.oauth);
+            return objectAssign(state, {googleOauth: {expiration: (action as SetOauthAction).expiration, token: (action as SetOauthAction).token}});
+        case SET_USER:
+            return objectAssign(state, action as SetUserAction);
         default:
             return state;
     }
