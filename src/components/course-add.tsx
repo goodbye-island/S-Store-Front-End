@@ -25,7 +25,12 @@ export const CourseAdd = connect( (state: State) => ({user: state.user, departme
         }>
             <Input value={this.state.title} label="Title" onChange={value => this.setState({title: value})} />
             <DepartmentDropdown onChange={value => this.setState({department: value})} label="Department"/>
-            <IntInput value={this.state.course} label="Course #" onChange={value => this.setState({course: value})} />
+            <IntInput value={this.state.course} label="Course #" onChange={value => this.setState({course: value})} /><br/>
+            <textarea 
+                style={{width: "100%", height: "100px", margin: "5px"}} 
+                value={this.state.description}
+                label="Description"
+                onChange={(value: any) => this.setState({description: value.target.value})} />
         </form>
     }
 })
