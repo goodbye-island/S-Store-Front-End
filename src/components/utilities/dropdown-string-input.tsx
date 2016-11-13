@@ -16,10 +16,9 @@ export class DropdownStringInput extends React.Component<DropdownStringInputProp
         super(props);
         this.state = {value: props.value?this.props.options.find( o => o.id==this.props.value).value:"", expanded: false};
 
-        window.onclick = (event) => {
-            console.log(event)
-            this.setState({expanded: false});
-        }
+        window.addEventListener("click", (event) => {
+            this.setState({expanded: (event as any).dropdown == this});
+        })
     }
 
     componentWillReceiveProps(props: DropdownStringInputProps) {
@@ -66,7 +65,7 @@ export class DropdownStringInput extends React.Component<DropdownStringInputProp
                     <input required className="dropdown-input" id={id} value={this.state.value} onChange={(e: any) =>{
                         this.setState({value: e.target.value})
                         this.checkStatus(e.target.value)
-                    }} onClick={e => e.stopPropagation()}/>
+                    }} onClick={e => (e.nativeEvent as any).dropdown = this}/>
                     <label htmlFor={id} > {this.props.label} </label>
                     { (() => {
                         if (this.state.expanded) {
