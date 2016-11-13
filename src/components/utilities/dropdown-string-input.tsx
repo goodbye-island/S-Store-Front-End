@@ -1,6 +1,7 @@
 import * as React from "react";
 import {IntInputProps} from "./int-input"
 export interface DropdownStringInputProps extends IntInputProps{
+    value?: number,
     options: {
         value: string,
         id: number
@@ -13,7 +14,7 @@ export class DropdownStringInput extends React.Component<DropdownStringInputProp
     last: number = undefined
     constructor(props: DropdownStringInputProps) {
         super(props);
-        this.state = {value: props.value?props.value:"", expanded: false};
+        this.state = {value: props.value?this.props.options.find( o => o.id==this.props.value).value:"", expanded: false};
 
         window.onclick = (event) => {
             console.log(event)
@@ -25,7 +26,7 @@ export class DropdownStringInput extends React.Component<DropdownStringInputProp
         if (props.value == this.props.value) {
             return;
         }
-        this.setState({value: props.value?props.value:""})
+        this.setState({value: props.value?this.props.options.find( o => o.id==this.props.value).value:""})
     }
 
     checkStatus(value: string) {

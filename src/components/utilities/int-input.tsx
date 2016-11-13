@@ -1,6 +1,7 @@
 import * as React from "react";
 import {Input,  InputProps} from "./input"
 export interface IntInputProps extends InputProps{
+    value?: number,
     onChange: (value: number) => void,
 }
 

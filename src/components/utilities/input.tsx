@@ -5,7 +5,7 @@ export interface InputProps{
     label?: string
     id?: string,
     class?: string,
-    value?: string
+    value?: any
 }
 
 let last_id = 0;

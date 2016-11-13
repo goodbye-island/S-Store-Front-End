@@ -35,14 +35,14 @@ state is something like
 }
 */
 
-enum Roles {
+export enum Roles {
     student,
     teacher,
     department_head,
     admin
 }
 
-interface user {
+export interface User {
         google_oauth?: {
             token: string,
             expiration: Date,
@@ -55,7 +55,7 @@ export interface State {
     filter: Filter,
     classes: Class[],
     departments: { [id: number]: {title: string, abbreviation: string}},
-    user: user
+    user: User
 }
 
 export const sStore = combineReducers({
@@ -65,7 +65,7 @@ export const sStore = combineReducers({
     user
 })
 
-function user(state: user = {google_oauth: null, role: Roles.student, user_id: undefined}, action: any) {
+function user(state: User = {google_oauth: null, role: Roles.student, user_id: undefined}, action: any) {
     switch (action.type){
         case SET_OAUTH:
             return objectAssign({}, action.oauth);
