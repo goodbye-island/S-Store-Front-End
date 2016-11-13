@@ -24,8 +24,8 @@ export const CourseAdd = connect( (state: State) => ({user: state.user, departme
             e => e.preventDefault()
         }>
             <Input value={this.state.title} label="Title" onChange={value => this.setState({title: value})} />
-            <IntInput value={this.state.course} label="Course #" onChange={value => this.setState({course: value})} />
             <DepartmentDropdown onChange={value => this.setState({department: value})} label="Department"/>
+            <IntInput value={this.state.course} label="Course #" onChange={value => this.setState({course: value})} />
         </form>
     }
 })
