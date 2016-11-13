@@ -5,12 +5,14 @@ import {DropdownStringInput} from './utilities/dropdown-string-input'
 import {Input} from './utilities/input'
 import {IntInput} from './utilities/int-input'
 
+import {DepartmentDropdown} from './department-dropdown'
+
+
 export interface ClassFilterInputProps {
     onChange: (filter: Filter) => void,
-    departments: { [id: number]: {title: string, abbreviation: string}}
 }
 
-export class ClassFilterInput extends React.Component<ClassFilterInputProps, {}> {
+export class ClassFilterInput extends React.Component<ClassFilterInputProps, Filter> {
     state: Filter = {}
     render() {
         return  <div className="filter">
@@ -19,12 +21,10 @@ export class ClassFilterInput extends React.Component<ClassFilterInputProps, {}>
                         this.props.onChange(objectAssign({}, this.state, {title: title}));
                     }}/>
                     <br/>
-                    <DropdownStringInput label="Department" onChange = {
-                        (id) => {
-                            this.setState({department: id});
-                            this.props.onChange(objectAssign({}, this.state, {department: id}));
-                        }
-                    } options = {Object.keys(this.props.departments).map(id => {return {id: parseInt(id), value: this.props.departments[parseInt(id)].title}})}/>
+                    <DepartmentDropdown onChange={department => {
+                            this.setState({department: department})
+                            this.props.onChange(objectAssign({}, this.state, {department: department}));
+                        }} label="Department"/>
                     <IntInput label="Course Num" onChange={course => {
                         if (isNaN(course)) {
                             course = undefined;

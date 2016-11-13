@@ -116,7 +116,6 @@ export function newFilter(filter: Filter, api: string) {
         (key) => url += key + "=" + encodeURIComponent(String(filter[key])) + "&"
     )
     return function (dispatch: any) {
-        dispatch(setFilter(filter))
         return fetch(url)
         .then(response => response.json())
         .then(json =>

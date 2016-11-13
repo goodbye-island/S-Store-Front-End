@@ -23,14 +23,12 @@ export interface User {
     }
 
 export interface State {
-    filter: Filter,
     classes: Class[],
     departments: { [id: number]: {title: string, abbreviation: string}},
     user: User
 }
 
 export const sStore = combineReducers({
-    filter,
     classes,
     departments,
     user
@@ -52,16 +50,6 @@ function departments(state: { [id: number]: string} = {}, action: SetDepartments
     switch(action.type) {
         case SET_DEPARTMENTS:
             return objectAssign({}, action.departments);
-        default:
-            return state;
-    }
-}
-
-
-function filter(state: Filter = {}, action: SetFilterAction) {
-    switch(action.type) {
-        case SET_FILTER:
-            return objectAssign({}, state, action.filter);
         default:
             return state;
     }

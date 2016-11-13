@@ -14,10 +14,8 @@ export interface Filter {
 }
 
 
-export function filter(state: State) {
-    let filter = state.filter;
-    let departments = state.departments;
-
+export function filter(filter: Filter) {
+    console.log(filter)
     return function(course: Class) {
         let title_valid = filter.title === undefined || course.title.toLowerCase().indexOf(filter.title.toLowerCase()) >= 0;
         let course_valid = filter.course === undefined || course.course === filter.course;
