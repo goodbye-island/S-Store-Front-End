@@ -98,13 +98,8 @@ th {
 }
 
 .course .description {
-    width: 50%;
+    width: 25%;
     float: left;
-}
-
-.course .course-list {
-    width: 50%;
-    float: right;
 }
 
 .link {
@@ -114,4 +109,17 @@ th {
 .filter .float-label {
     margin-top: 20px;
     display: inline-block;
+}
+
+.class-add input {
+    width: 100%;
+}
+
+.class-add td {
+    display: table-cell;
+    padding: 0;
+}
+
+.class-add div {
+    display: table-cell;
 }

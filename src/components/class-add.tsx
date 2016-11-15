@@ -31,7 +31,7 @@ export const ClassAdd = connect( (state: State) => ({user: state.user}))
         if (this.props.user.role === Roles.student || this.props.user.role === Roles.teacher) {
             return <div/>
         }
-        return <tr className={"class" + (this.state.syllabus?" link":"")} >
+        return <tr className={"class-add" + (this.state.syllabus?" link":"")} >
                     <td>
                         <IntInput value={this.state.section} label="section" onChange={v => this.setState({section: v})} />
                     </td>
@@ -45,7 +45,7 @@ export const ClassAdd = connect( (state: State) => ({user: state.user}))
                         <Week days={this.state.days}/>
                     </td>
                     <td>
-                        <IntInput value={this.state.CRN} label="CRN"  onChange={v => this.setState({CRN: v})} />
+                        <Input value={this.state.CRN} label="Start"  onChange={v => this.setState({start: new Date(v)})} />
                     </td>
                     <td>
                         {Math.floor(this.state.length/60)}:{("0" + this.state.length%60).slice(-2)}

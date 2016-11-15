@@ -6,6 +6,7 @@ export interface InputProps{
     id?: string,
     class?: string,
     value?: any
+    style?: any
 }
 
 let last_id = 0;
