@@ -10,10 +10,9 @@ import {DepartmentDropdown} from './department-dropdown'
 
 export interface CourseAdd {
     user: User,
-    departments: { [id: number]: {title: string, abbreviation: string}}
 }
 
-export const CourseAdd = connect( (state: State) => ({user: state.user, departments: state.departments}))
+export const CourseAdd = connect( (state: State) => ({user: state.user}))
 (class extends React.Component<CourseAdd, {}> {
     state: Course = {title: "", course: undefined, department: undefined, keyword: "", description: "", classes: []}
     render() {

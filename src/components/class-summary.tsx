@@ -1,10 +1,10 @@
 import * as React from "react";
 import { CourseSummary } from "./course-summary"
-import {Class} from "../class"
+import {ClassXCourse} from "../class"
 import config from "../config"
 import {Week} from "./week"
 export interface ClassSummaryProps {
-    class_: Class
+    class_: ClassXCourse
 }
 
 export class ClassSummary extends React.Component<ClassSummaryProps, {}> {

@@ -9,7 +9,7 @@ export enum Days {
     sat = 7,
 }
 
-export interface Class {
+export interface ClassXCourse {
     title: string,
     course: number
     department: number,
@@ -38,6 +38,30 @@ export interface Class {
     lab_length?: number
 }
 
+export interface Class {
+    section: number,
+    semester: number,
+    term: string
+    year: number,
+    teacher: string,
+    CRN: number,
+    days: {
+        sun: boolean,
+        mon: boolean,
+        tue: boolean,
+        wed: boolean,
+        thu: boolean,
+        fri: boolean,
+        sat: boolean
+    }
+    syllabus: number
+    time: Date
+    length: number
+    lab_day?: Days
+    lab_time?: Date
+    lab_length?: number
+}
+
 
 export interface Course {
     title: string,
@@ -45,10 +69,10 @@ export interface Course {
     department: number
     keyword: string,
     description: string,
-    classes: Class[]
+    classes: ClassXCourse[]
 }
 
-export function to_courses(classes: Class[]): Course[] {
+export function to_courses(classes: ClassXCourse[]): Course[] {
     var courses_for_department: {[id: number]: {[id: number]: Course}} = {}
     classes.forEach(
         c => {

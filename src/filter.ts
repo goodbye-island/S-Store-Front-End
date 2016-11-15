@@ -1,4 +1,4 @@
-import { Class } from "./class"
+import { ClassXCourse } from "./class"
 import {State} from "./reducers"
 export interface Filter {
     title?: string,
@@ -16,7 +16,7 @@ export interface Filter {
 
 export function filter(filter: Filter) {
     console.log(filter)
-    return function(course: Class) {
+    return function(course: ClassXCourse) {
         let title_valid = filter.title === undefined || course.title.toLowerCase().indexOf(filter.title.toLowerCase()) >= 0;
         let course_valid = filter.course === undefined || course.course === filter.course;
         let department_valid = filter.department === undefined || course.department == filter.department;

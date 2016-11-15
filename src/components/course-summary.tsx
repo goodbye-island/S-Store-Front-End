@@ -1,11 +1,11 @@
 import * as React from "react";
-import {Class, Course} from "../class"
+import {ClassXCourse, Course} from "../class"
 import {Toggle} from "./utilities/toggle"
 import {ClassList} from "./class-list"
 import {Department} from "./department"
 import {Week} from "./week"
 export interface CourseSummaryProps {
-    classes: Class[],
+    classes: ClassXCourse[],
     course: Course
 }
 

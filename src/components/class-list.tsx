@@ -1,14 +1,14 @@
 import * as React from "react";
 import { ClassSummary } from "./class-summary"
-import {Class} from "../class"
+import {ClassXCourse} from "../class"
 
-interface ClassString extends Class {
+interface ClassString extends ClassXCourse {
     teacher_string: string,
     department_string: string
 }
 
 export interface ClassListProps {
-    classes: Class[],
+    classes: ClassXCourse[],
 }
 
 export class ClassList extends React.Component<ClassListProps, {}> {

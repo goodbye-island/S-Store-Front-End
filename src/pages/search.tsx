@@ -3,7 +3,7 @@ import { CourseList } from "../components/course-list"
 import { ClassFilterInput } from "../components/class-filter-input"
 import { CourseAdd } from "../components/course-add"
 import { Filter, filter } from '../filter'
-import { Class } from '../class'
+import { ClassXCourse } from '../class'
 import { to_courses } from '../class'
 import { newFilter } from '../actions'
 
@@ -12,7 +12,7 @@ import { State } from '../reducers'
 import  config from '../config'
 
 export interface SearchProps {
-    classes: Class[],
+    classes: ClassXCourse[],
     onFilterChange: (filter: Filter) => void
 }
 

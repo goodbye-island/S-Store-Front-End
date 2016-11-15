@@ -1,5 +1,5 @@
 import { Filter } from './filter'
-import { Class } from './class'
+import { ClassXCourse } from './class'
 import { Roles } from './reducers'
 export const SET_FILTER = "SET_FILTER"
 export const ADD_CLASS = "ADD_CLASS"
@@ -13,7 +13,7 @@ export interface SetFilterAction extends Redux.Action{
 }
 
 export interface AddClassAction extends Redux.Action{
-    new_class: Class
+    new_class: ClassXCourse
 }
 
 export interface SetDepartmentsAction extends Redux.Action{
@@ -38,7 +38,7 @@ export function setFilter(filter: Filter): SetFilterAction {
     return {type: SET_FILTER, filter: filter}
 }
 
-export function addClass(new_class: Class): AddClassAction{
+export function addClass(new_class: ClassXCourse): AddClassAction{
     return {type: ADD_CLASS, new_class: new_class}
 }
 
@@ -82,7 +82,7 @@ interface DeptDB {
     "Dept_Title_Abb": "CS"
 }
 
-function db_to_class(c: ClassDB): Class {
+function db_to_class(c: ClassDB): ClassXCourse {
     return {
         days: {
                 sun:  c.Class_Day.includes('Su'),
