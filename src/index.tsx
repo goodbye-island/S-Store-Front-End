@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import {Search} from "./pages/search"
 import {Login} from "./pages/login"
 import {About} from "./pages/about"
+import {ClassView} from "./pages/class"
 
 import {Layout} from "./components/layout"
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
@@ -27,6 +28,7 @@ ReactDOM.render(
             <Route path="/" component={Layout}>
                 <Route path="/about" component={About}/>
                 <Route path="/login" component={Login}/>
+                <Route path="/class/:CRN" component={ClassView}/>
                 <IndexRoute component={Search}/>
             </Route>
         </Router>
