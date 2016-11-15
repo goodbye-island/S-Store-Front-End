@@ -1,7 +1,6 @@
 import * as React from "react";
 import { ClassSummary } from "./class-summary"
 import {ClassXCourse} from "../class"
-import { ClassAdd } from "./class-add"
 
 interface ClassString extends ClassXCourse {
     teacher_string: string,
@@ -30,7 +29,6 @@ export class ClassList extends React.Component<ClassListProps, {}> {
                     </thead>
                     <tbody>
                     {classes}
-                    <ClassAdd/>
                     </tbody>
                 </table>
     }
