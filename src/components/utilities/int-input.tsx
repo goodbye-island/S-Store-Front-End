@@ -6,5 +6,5 @@ export interface IntInputProps extends InputProps{
 }
 
 export function IntInput(props: IntInputProps) {
-    return <Input {...props} onChange={(e: any) => props.onChange(parseInt(e.target.value))}/>
+    return <Input {...props} onChange={(e) => props.onChange(parseInt(e))}/>
 }
