@@ -3,7 +3,6 @@ export interface AboutProps {}
 
 
 export class About extends React.Component<AboutProps, {}> {
-    state: {title: string} = {title: undefined}
     render() {
         return  <div>
 
