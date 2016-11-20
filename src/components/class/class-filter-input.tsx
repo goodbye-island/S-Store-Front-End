@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Filter } from '../filter'
+import { Filter } from '../../filter'
 import * as objectAssign from 'object-assign'
-import {DropdownStringInput} from './utilities/dropdown-string-input'
-import {Input} from './utilities/input'
-import {IntInput} from './utilities/int-input'
+import {DropdownStringInput} from '../utilities/dropdown-string-input'
+import {Input} from '../utilities/input'
+import {IntInput} from '../utilities/int-input'
 
-import {DepartmentDropdown} from './department-dropdown'
+import {DepartmentDropdown} from '../department-dropdown'
 
 
 export interface ClassFilterInputProps {

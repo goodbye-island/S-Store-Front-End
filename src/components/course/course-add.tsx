@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
-import { State, User, Roles } from '../reducers'
+import { State, User, Roles } from '../../reducers'
 import * as React from "react";
-import {Course} from "../class"
-import {DropdownStringInput} from './utilities/dropdown-string-input'
-import {Input} from './utilities/input'
-import {IntInput} from './utilities/int-input'
+import {Course} from "../../class"
+import {DropdownStringInput} from '../utilities/dropdown-string-input'
+import {Input} from '../utilities/input'
+import {IntInput} from '../utilities/int-input'
 
-import {DepartmentDropdown} from './department-dropdown'
+import {DepartmentDropdown} from '../department-dropdown'
 
 export interface CourseAdd {
     user: User,

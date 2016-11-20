@@ -5,7 +5,7 @@ import {Login} from "./pages/login"
 import {About} from "./pages/about"
 import {ClassView} from "./pages/class"
 
-import {Layout} from "./components/layout"
+import {Layout} from "./components/layout/layout"
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 import { Provider } from 'react-redux';

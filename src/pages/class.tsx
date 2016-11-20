@@ -1,7 +1,6 @@
 import * as React from "react";
 import {ClassXCourse} from "../class"
-import {ClassSummary} from "../components/class-summary"
-import {PdfView} from "../components/pdf-view"
+import {PdfView} from "../components/utilities/pdf-view"
 
 import { connect } from 'react-redux'
 import { State } from '../reducers'

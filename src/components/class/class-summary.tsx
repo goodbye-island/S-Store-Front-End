@@ -1,8 +1,7 @@
 import * as React from "react";
-import { CourseSummary } from "./course-summary"
-import {ClassXCourse} from "../class"
-import config from "../config"
-import {Week} from "./week"
+import {ClassXCourse} from "../../class"
+import config from "../../config"
+import {Week} from "../utilities/week-view"
 export interface ClassSummaryProps {
     class_: ClassXCourse
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
-import { CourseList } from "../components/course-list"
-import { ClassFilterInput } from "../components/class-filter-input"
-import { CourseAdd } from "../components/course-add"
+import { CourseList } from "../components/course/course-list"
+import { ClassFilterInput } from "../components/class/class-filter-input"
+import { CourseAdd } from "../components/course/course-add"
 import { Filter, filter } from '../filter'
 import { ClassXCourse } from '../class'
 import { to_courses } from '../class'
