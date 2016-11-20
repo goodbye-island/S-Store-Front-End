@@ -9,12 +9,8 @@ export interface ClassSummaryProps {
 
 export class ClassSummary extends React.Component<ClassSummaryProps, {}> {
     render() {
-        return <tr className={"class" + (this.props.class_.syllabus?" link":"")} onClick = { () => {
-            if (!this.props.class_.syllabus) {
-                console.warn("there isn't a syllabus for " + this.props.class_.CRN)
-                return;
-            }
-            location.assign(config.api + "/syllabus_view?SyllaID=" + this.props.class_.syllabus)
+        return <tr className="class link" onClick = { () => {
+            location.assign("class/" + this.props.class_.CRN)
         }}>
                     <td>
                         {this.props.class_.section}

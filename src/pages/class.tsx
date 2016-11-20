@@ -1,6 +1,7 @@
 import * as React from "react";
 import {ClassXCourse} from "../class"
 import {ClassSummary} from "../components/class-summary"
+import {PdfView} from "../components/pdf-view"
 
 import { connect } from 'react-redux'
 import { State } from '../reducers'
@@ -31,9 +32,13 @@ export const ClassView = connect( (state: State, props: ClassProps) => ({class_:
         if (!this.props.class_) {
             return <div> </div>
         }
-        console.log(this.props.class_, this.context, this.props.CRN)
-        return  <div>
-                    <ClassSummary class_={this.props.class_} />
+        return  <div style={{height: "100%"}}>
+                    <div style={{float: "left", width: "50%", height: "100%"}}>
+                        <PdfView pdf={config.api + "/syllabus_view?SyllaID=" + this.props.class_.syllabus} />
+                    </div>
+                    <div style={{float: "right", width: "50%", height: "100%"}}>
+                        
+                    </div>
                 </div>
     }
 })

@@ -1,6 +1,11 @@
-body {
+body, html, #react, #react > div {
     margin:  0;
     font-family: 'Open Sans', sans-serif;
+    height: 100%;
+}
+
+#react > div {
+    position: relative;
 }
 
 .dropdown {
