@@ -21,6 +21,9 @@ export function name(user: User) {
     let result = "";
     if (user.honorific)
         result += user.honorific + " "
-    result += user.firstName + " " + user.lastName;
+    if (user.firstName)
+        result += user.firstName + " " + user.lastName;
+    else
+        return "Not Defined"
     return result;
 }

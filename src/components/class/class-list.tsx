@@ -19,6 +19,7 @@ export class ClassList extends React.Component<ClassListProps, {}> {
          return <table className="class-list">
                     <thead>
                         <tr>
+                            <th>Instructor</th>
                             <th>Section</th>
                             <th>Semester</th>
                             <th>CRN</th>

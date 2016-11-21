@@ -1,6 +1,8 @@
 import * as React from "react";
 import {ClassXCourse} from "../../class"
 import config from "../../config"
+import { name } from "../../user"
+
 import {Week} from "../utilities/week-view"
 export interface ClassSummaryProps {
     class_: ClassXCourse
@@ -11,6 +13,9 @@ export class ClassSummary extends React.Component<ClassSummaryProps, {}> {
         return <tr className="class link" onClick = { () => {
             location.assign("class/" + this.props.class_.CRN)
         }}>
+                    <td>
+                        {name(this.props.class_.teacher)}
+                    </td>
                     <td>
                         {this.props.class_.section}
                     </td>
