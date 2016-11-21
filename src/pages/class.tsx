@@ -1,9 +1,12 @@
 import * as React from "react";
 import {ClassXCourse} from "../class"
 import {PdfView} from "../components/utilities/pdf-view"
+import {Department} from "../components/department"
 
 import { connect } from 'react-redux'
 import { State } from '../reducers'
+import { name } from '../user'
+
 import { newFilter } from '../actions'
 import config from '../config'
 
@@ -32,11 +35,27 @@ export const ClassView = connect( (state: State, props: ClassProps) => ({class_:
             return <div> </div>
         }
         return  <div style={{height: "100%"}}>
-                    <div style={{float: "left", width: "50%", height: "100%"}}>
+                    <h1 style={{textAlign: "center"}}>
+                        <span className="department-acronym"><Department departmentID={this.props.class_.department}/></span>
+                        <span> </span>
+                        <span className="course-number">{this.props.class_.course}</span>
+                        <span>-</span>
+                        <span className="section-number">{this.props.class_.section}</span>
+                        <span>: </span>
+                        <span className="title">{this.props.class_.title}</span>
+                        <span> </span>
+                        <span className="term">({this.props.class_.term}-{this.props.class_.year})</span>
+                    </h1>
+                    <div style={{float: "left", width: "50%", height: "34.7vw"}}>
                         <PdfView pdf={config.api + "/syllabus_view?SyllaID=" + this.props.class_.syllabus} />
                     </div>
-                    <div style={{float: "right", width: "50%", height: "100%"}}>
-                        
+                    <div style={{float: "right", width: "50%", height: "100%", padding: "10px"}}>
+                        <div>
+                            {this.props.class_.description}
+                        </div>
+                        <div>
+                            {name(this.props.class_.teacher)}
+                        </div>
                     </div>
                 </div>
     }

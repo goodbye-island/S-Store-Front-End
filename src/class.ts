@@ -1,3 +1,4 @@
+import { User } from './user'
 
 export enum Days {
     sun = 1,
@@ -9,33 +10,7 @@ export enum Days {
     sat = 7,
 }
 
-export interface ClassXCourse {
-    title: string,
-    course: number
-    department: number,
-    section: number,
-    semester: number,
-    term: string
-    year: number,
-    teacher: string,
-    CRN: number,
-    keyword: string,
-    description: string
-    days: {
-        sun: boolean,
-        mon: boolean,
-        tue: boolean,
-        wed: boolean,
-        thu: boolean,
-        fri: boolean,
-        sat: boolean
-    }
-    syllabus: number
-    time: Date
-    length: number
-    lab_day?: Days
-    lab_time?: Date
-    lab_length?: number
+export interface ClassXCourse extends Class, CourseInfo {
 }
 
 export interface Class {
@@ -43,7 +18,6 @@ export interface Class {
     semester: number,
     term: string
     year: number,
-    teacher: string,
     CRN: number,
     days: {
         sun: boolean,
@@ -56,20 +30,24 @@ export interface Class {
     }
     syllabus: number
     time: Date
-    length: number
+    length: number,
+    teacher: User,
     lab_day?: Days
     lab_time?: Date
     lab_length?: number
 }
 
 
-export interface Course {
+export interface Course extends CourseInfo {
+    classes: ClassXCourse[]
+}
+
+export interface CourseInfo {
     title: string,
     course: number,
     department: number
     keyword: string,
     description: string,
-    classes: ClassXCourse[]
 }
 
 export function to_courses(classes: ClassXCourse[]): Course[] {

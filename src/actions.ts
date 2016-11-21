@@ -1,6 +1,6 @@
 import { Filter } from './filter'
 import { ClassXCourse } from './class'
-import { Roles } from './reducers'
+import { User, Roles } from './user'
 export const SET_FILTER = "SET_FILTER"
 export const ADD_CLASS = "ADD_CLASS"
 export const SET_DEPARTMENTS = "SET_DEPARTMENTS"
@@ -25,12 +25,7 @@ export interface SetOauthAction extends Redux.Action{
     expiration: Date,
 }
 
-export interface SetUserAction extends Redux.Action{
-    role: Roles,
-    firstName: string,
-    lastName: string
-    honorific: string
-    userId: number
+export interface SetUserAction extends Redux.Action, User{
 }
 
 
@@ -72,8 +67,11 @@ interface ClassDB{
     "Day_Time": string,
     "Day_Len": number,
     "Lab_ID": number,
-    "Lab_Time": number,
-    "Lab_Len": number
+    "Lab_Time": string,
+    "Lab_Len": number,
+    "Honorific": string,
+    "First_Name": string,
+    "Last_Name": string
 }
 
 interface DeptDB {
@@ -100,7 +98,12 @@ function db_to_class(c: ClassDB): ClassXCourse {
         semester: c.Term_ID,
         year: c.Year,
         term: c.Term,
-        teacher: "Undefined"+c.Teacher_User_ID,
+        teacher: {role: Roles.teacher,
+                    firstName: c.First_Name,
+                    lastName: c.Last_Name,
+                    honorific: c.Honorific,
+                    userId: c.Teacher_User_ID
+            },
         CRN: c.CRN,
         keyword: "",
         description: c.Description,

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { State, User, Roles } from '../../reducers'
+import { State} from '../../reducers'
+import { User, Roles } from '../../user'
 import * as React from "react";
 import {Course, Class} from "../../class"
 import {DropdownStringInput} from '../utilities/dropdown-string-input'
@@ -16,16 +17,21 @@ export interface ClassAdd {
 
 export const ClassAdd = connect( (state: State) => ({user: state.user}))
 (class extends React.Component<ClassAdd, {}> {
-    state: Class = {
-        section: undefined,
-        semester: undefined,
-        term: "", year: undefined,
-        teacher: "", 
-        CRN: undefined, 
-        days: {sun: false, mon: false, tue: false, thu: false, wed: false, fri: false, sat: false},
-        syllabus: undefined,
-        time: undefined,
-        length: undefined
+    state: Class;
+    constructor(props: ClassAdd) {
+        super(props);
+
+        this.state = {
+            section: undefined,
+            semester: undefined,
+            term: "", year: undefined,
+            teacher: props.user, 
+            CRN: undefined, 
+            days: {sun: false, mon: false, tue: false, thu: false, wed: false, fri: false, sat: false},
+            syllabus: undefined,
+            time: undefined,
+            length: undefined
+        }
     }
     render() {
         if (this.props.user.role === Roles.student || this.props.user.role === Roles.teacher) {

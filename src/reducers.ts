@@ -1,26 +1,11 @@
 import { combineReducers } from 'redux'
 import { Filter } from './filter'
 import { Class } from './class'
+import { Roles } from './user'
 import {SET_FILTER, SetFilterAction, ADD_CLASS, AddClassAction, SET_DEPARTMENTS, SetDepartmentsAction, SET_OAUTH, SetOauthAction, SET_USER, SetUserAction} from './actions'
 import * as objectAssign from 'object-assign'
-export enum Roles {
-    student,
-    teacher,
-    department_head,
-    admin
-}
 
-export interface User {
-        googleOauth?: {
-            token: string,
-            expiration: Date,
-        },
-        role: Roles,
-        firstName: string,
-        lastName: string
-        honorific: string
-        userId: number
-    }
+import { User } from './user'
 
 export interface State {
     classes: Class[],
