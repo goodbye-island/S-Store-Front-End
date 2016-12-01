@@ -1,12 +1,15 @@
 import { Filter } from './filter'
 import { ClassXCourse } from './class'
 import { User, Roles } from './user'
+import { fetchTerms, SetTermAction, Terms} from './terms'
 export const SET_FILTER = "SET_FILTER"
 export const ADD_CLASS = "ADD_CLASS"
 export const SET_DEPARTMENTS = "SET_DEPARTMENTS"
 export const GET_SEARCH_RESULT = "GOT_SEARCH_RESULT"
 export const SET_OAUTH = "SET_OAUTH"
 export const SET_USER = "SET_USER"
+export const SET_TERMS = "SET_TERMS"
+
 
 export interface SetFilterAction extends Redux.Action{
     filter: Filter
@@ -47,6 +50,10 @@ export function setOauth(token: string, expiration: Date): SetOauthAction {
 
 export function setUserAction(role: Roles, firstName: string, lastName: string, honorific: string, userID: number): SetUserAction {
     return {type: SET_USER, "role": role, firstName: firstName, lastName: lastName, honorific: honorific, userId: userID }
+}
+
+export function setTerms(terms: Terms): SetTermAction {
+    return {type: SET_TERMS, terms: terms}
 }
 
 interface ClassDB{
@@ -157,5 +164,10 @@ export function update(api: string) {
             )
             dispatch(setDepartments(departments));
         })
+        fetchTerms()
+        .then(terms => {
+            console.log("terms", terms)
+            dispatch(setTerms(terms))
+        });
     }
 }

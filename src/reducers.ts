@@ -2,21 +2,24 @@ import { combineReducers } from 'redux'
 import { Filter } from './filter'
 import { Class } from './class'
 import { Roles } from './user'
-import {SET_FILTER, SetFilterAction, ADD_CLASS, AddClassAction, SET_DEPARTMENTS, SetDepartmentsAction, SET_OAUTH, SetOauthAction, SET_USER, SetUserAction} from './actions'
+import {SET_FILTER, SetFilterAction, ADD_CLASS, AddClassAction, SET_DEPARTMENTS, SetDepartmentsAction, SET_OAUTH, SetOauthAction, SET_USER, SetUserAction, SET_TERMS} from './actions'
 import * as objectAssign from 'object-assign'
 
 import { User } from './user'
+import { Terms, SetTermAction } from './terms'
 
 export interface State {
     classes: Class[],
     departments: { [id: number]: {title: string, abbreviation: string}},
-    user: User
+    user: User,
+    terms: Terms
 }
 
 export const sStore = combineReducers({
     classes,
     departments,
-    user
+    user,
+    terms
 })
 
 function user(state: User = {googleOauth: null, role: Roles.student, userId: undefined, firstName: undefined, lastName: undefined, honorific: undefined}, action: SetOauthAction|SetUserAction): User {
@@ -51,4 +54,13 @@ function classes(state: Class[] = [], action: AddClassAction) {
         default:
             return state;
     }
+}
+
+
+function terms(state: Terms = {}, action: SetTermAction) {
+    switch(action.type){
+        case SET_TERMS:
+            return action.terms
+    }
+    return  state
 }
