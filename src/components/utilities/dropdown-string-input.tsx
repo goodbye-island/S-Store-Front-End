@@ -1,18 +1,19 @@
 import * as React from "react";
-import {IntInputProps} from "./int-input"
-export interface DropdownStringInputProps extends IntInputProps{
-    value?: number,
+import {InputProps} from "./input"
+export interface DropdownStringInputProps<T> extends InputProps{
     options: {
         value: string,
-        id: number
+        id: T
     }[]
+    value?: T,
+    onChange: (value: T) => void,
 }
 
 let last_id = 0
-export class DropdownStringInput extends React.Component<DropdownStringInputProps, {}> {
+export class DropdownStringInput<T extends React.Key> extends React.Component<DropdownStringInputProps<T>, {}> {
     state: {value: string, expanded: boolean};
-    last: number = undefined
-    constructor(props: DropdownStringInputProps) {
+    last: T = undefined
+    constructor(props: DropdownStringInputProps<T>) {
         super(props);
         this.state = {value: props.value?this.props.options.find( o => o.id==this.props.value).value:"", expanded: false};
 
@@ -21,7 +22,7 @@ export class DropdownStringInput extends React.Component<DropdownStringInputProp
         })
     }
 
-    componentWillReceiveProps(props: DropdownStringInputProps) {
+    componentWillReceiveProps(props: DropdownStringInputProps<T>) {
         if (props.value == this.props.value) {
             return;
         }

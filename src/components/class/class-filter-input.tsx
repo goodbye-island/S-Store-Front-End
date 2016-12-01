@@ -6,6 +6,7 @@ import {Input} from '../utilities/input'
 import {IntInput} from '../utilities/int-input'
 
 import {DepartmentDropdown} from '../department-dropdown'
+import {TermDropdown} from '../term-dropdown'
 
 
 export interface ClassFilterInputProps {
@@ -20,6 +21,18 @@ export class ClassFilterInput extends React.Component<ClassFilterInputProps, Fil
                         this.setState({title: title});
                         this.props.onChange(objectAssign({}, this.state, {title: title}));
                     }}/>
+                    <IntInput label="Year" onChange={year => {
+                        if (isNaN(year) || year <= 1900) {
+                            year = undefined;
+                        }
+                        this.setState({year: year});
+                        this.props.onChange(objectAssign({}, this.state, {year: year}));
+                    }}/>
+                    <TermDropdown onChange={(term_id, term) => {
+                            console.log("here", term)
+                            this.setState({semester: term})
+                            this.props.onChange(objectAssign({}, this.state, {semester: term}));
+                    }} label="Semester"/>
                     <br/>
                     <DepartmentDropdown onChange={department => {
                             this.setState({department: department})

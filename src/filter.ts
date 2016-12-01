@@ -7,7 +7,7 @@ export interface Filter {
     course?: number
     department?: number,
     section?: number,
-    semester?: number,
+    semester?: string,
     year?: number,
     teacher?: string,
     CRN?: number,
@@ -15,14 +15,16 @@ export interface Filter {
     [field: string]: any;
 }
 
+
+// The ugliest thing you will ever see. Check every item in the filter and if it exists check if it matches
 export function filter(filter: Filter) {
-    console.log(filter)
+    console.log(filter.semester)
     return function(course: ClassXCourse) {
         let title_valid = filter.title === undefined || course.title.toLowerCase().indexOf(filter.title.toLowerCase()) >= 0;
         let course_valid = filter.course === undefined || course.course === filter.course;
         let department_valid = filter.department === undefined || course.department == filter.department;
         let section_valid = filter.section === undefined || course.section === filter.section;
-        let semester_valid = filter.semester === undefined || course.semester === filter.semester;
+        let semester_valid = filter.semester === undefined || course.term === filter.semester;
         let year_valid = filter.year === undefined || course.year === filter.year;
         let teacher_valid = filter.teacher === undefined || name(course.teacher).toLowerCase().indexOf(filter.teacher.toLowerCase()) >= 0;
         let CRN_valid = filter.CRN === undefined || course.CRN === filter.CRN;
