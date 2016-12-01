@@ -166,7 +166,6 @@ export function update(api: string) {
         })
         fetchTerms()
         .then(terms => {
-            console.log("terms", terms)
             dispatch(setTerms(terms))
         });
     }
