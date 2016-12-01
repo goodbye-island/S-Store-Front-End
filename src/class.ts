@@ -13,6 +13,16 @@ export enum Days {
 export interface ClassXCourse extends Class, CourseInfo {
 }
 
+export const FREE_WEEK = {
+    sun: false,
+    mon: false,
+    tue: false,
+    wed: false,
+    thu: false,
+    fri: false,
+    sat: false
+}
+
 export interface Class {
     section: number,
     semester: number,
