@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import { State} from '../../reducers'
-import { User, Roles } from '../../user'
+import { State} from '../../control/reducers'
+import { User, Roles } from '../../control/user'
 import * as React from "react";
-import {Course, Class} from "../../class"
+import {Course, Class} from "../../control/class"
 import {DropdownStringInput} from '../utilities/dropdown-string-input'
 import {Input} from '../utilities/input'
 import {IntInput} from '../utilities/int-input'

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ClassSummary } from "./class-summary"
-import {ClassXCourse} from "../../class"
+import {ClassXCourse} from "../../control/class"
 
 interface ClassString extends ClassXCourse {
     teacher_string: string,

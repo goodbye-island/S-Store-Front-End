@@ -1,6 +1,6 @@
 import * as React from "react";
 import { CourseSummary } from "./course-summary"
-import {Course} from "../../class"
+import {Course} from "../../control/class"
 
 export interface CourseListProps {
     courses: Course[],

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Filter } from '../../filter'
+import { Filter } from '../../control/filter'
 import * as objectAssign from 'object-assign'
 import {DropdownStringInput} from '../utilities/dropdown-string-input'
 import {Input} from '../utilities/input'

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Class, FREE_WEEK} from "../class"
+import {Class, FREE_WEEK} from "../control/class"
 import {Department} from "../components/department"
 
 import {Input} from '../components/utilities/input'
@@ -10,10 +10,10 @@ import {DepartmentDropdown} from '../components/department-dropdown'
 import {TermDropdown} from '../components/term-dropdown'
 
 import { connect } from 'react-redux'
-import { State } from '../reducers'
-import { name } from '../user'
+import { State } from '../control/reducers'
+import { name } from '../control/user'
 
-import { newFilter } from '../actions'
+import { newFilter } from '../control/actions'
 import config from '../config'
 
 export interface ClassProps {

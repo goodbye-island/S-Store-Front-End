@@ -1,5 +1,5 @@
 import * as React from "react";
-import {ClassXCourse, Course} from "../../class"
+import {ClassXCourse, Course} from "../../control/class"
 import {Toggle} from "../utilities/toggle"
 import {ClassList} from "../class/class-list"
 import {Department} from "../department"

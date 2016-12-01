@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { State } from '../reducers'
+import { State } from '../control/reducers'
 
 import * as React from "react";
 import {DropdownStringInput} from './utilities/dropdown-string-input'

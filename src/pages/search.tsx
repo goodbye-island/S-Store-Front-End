@@ -2,13 +2,13 @@ import * as React from "react";
 import { CourseList } from "../components/course/course-list"
 import { ClassFilterInput } from "../components/class/class-filter-input"
 import { CourseAdd } from "../components/course/course-add"
-import { Filter, filter } from '../filter'
-import { ClassXCourse } from '../class'
-import { to_courses } from '../class'
-import { newFilter } from '../actions'
+import { Filter, filter } from '../control/filter'
+import { ClassXCourse } from '../control/class'
+import { to_courses } from '../control/class'
+import { newFilter } from '../control/actions'
 
 import { connect } from 'react-redux'
-import { State } from '../reducers'
+import { State } from '../control/reducers'
 import  config from '../config'
 
 export interface SearchProps {

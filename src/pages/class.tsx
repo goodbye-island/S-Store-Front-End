@@ -1,13 +1,13 @@
 import * as React from "react";
-import {ClassXCourse} from "../class"
+import {ClassXCourse} from "../control/class"
 import {PdfView} from "../components/utilities/pdf-view"
 import {Department} from "../components/department"
 
 import { connect } from 'react-redux'
-import { State } from '../reducers'
-import { name } from '../user'
+import { State } from '../control/reducers'
+import { name } from '../control/user'
 
-import { newFilter } from '../actions'
+import { newFilter } from '../control/actions'
 import config from '../config'
 
 export interface ClassProps {

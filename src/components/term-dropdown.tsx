@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
-import { State } from '../reducers'
+import { State } from '../control/reducers'
 
 import * as React from "react";
 import {DropdownStringInput} from './utilities/dropdown-string-input'
-import {Terms} from '../terms'
+import {Terms} from '../control/terms'
 interface TermDropdownProps {
     onChange: (id: number, term: string) => void
     label: string

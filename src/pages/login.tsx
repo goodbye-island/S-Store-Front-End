@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Input} from "../components/utilities/input"
-import {login} from "../login"
-import {setOauth} from "../actions"
+import {login} from "../control/login"
+import {setOauth} from "../control/actions"
 export interface LoginProps {location: {hash: string}, history: any}
 
 

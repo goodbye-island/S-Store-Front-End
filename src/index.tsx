@@ -11,9 +11,9 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux'
-import {addClass, setDepartments, update, setUserAction} from './actions'
-import { sStore} from './reducers'
-import { Roles } from './user'
+import {addClass, setDepartments, update, setUserAction} from './control/actions'
+import { sStore} from './control/reducers'
+import { Roles } from './control/user'
 import config from "./config"
 import thunkMiddleware from 'redux-thunk'
 
