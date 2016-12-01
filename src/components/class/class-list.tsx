@@ -14,7 +14,7 @@ export interface ClassListProps {
 export class ClassList extends React.Component<ClassListProps, {}> {
      render() {
          let classes = this.props.classes.map( (c, i) => {
-             return <ClassSummary key={c.title} class_={c} />
+             return <ClassSummary key={c.CRN} class_={c} />
          });
          return <table className="class-list">
                     <thead>
