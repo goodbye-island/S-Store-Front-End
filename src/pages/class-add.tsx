@@ -8,6 +8,7 @@ import {TimeInput} from '../components/utilities/time-input'
 
 import {DepartmentDropdown} from '../components/department-dropdown'
 import {TermDropdown} from '../components/term-dropdown'
+import {TeacherDropdown} from '../components/teacher-dropdown'
 
 import { connect } from 'react-redux'
 import { State } from '../control/reducers'
@@ -79,6 +80,9 @@ export const ClassAdd = connect( (state: State, props: ClassProps) => ({dep: pro
                             this.setState({time: time});
                             console.log(time)
                         }}/>
+                        <TeacherDropdown label="Teacher" onChange={
+                            (id, teacher) => this.setState({teacher: teacher})
+                        }/>
                     </form>
                 </div>
     }
