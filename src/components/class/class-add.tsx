@@ -27,7 +27,7 @@ export const ClassAdd = connect( (state: State) => ({user: state.user}))
             term: "", year: undefined,
             teacher: props.user, 
             CRN: undefined, 
-            days: {sun: false, mon: false, tue: false, thu: false, wed: false, fri: false, sat: false},
+            days: {sun: false, mon: false, tue: false, thu: false, wed: false, fri: false, sat: false, id: undefined},
             syllabus: undefined,
             time: undefined,
             length: undefined

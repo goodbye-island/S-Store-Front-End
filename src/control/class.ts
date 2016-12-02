@@ -1,4 +1,5 @@
 import { User } from './user'
+import { Week } from './days'
 import config from '../config'
 
 export enum Days {
@@ -14,14 +15,15 @@ export enum Days {
 export interface ClassXCourse extends Class, CourseInfo {
 }
 
-export const FREE_WEEK = {
+export const FREE_WEEK: Week = {
     sun: false,
     mon: false,
     tue: false,
     wed: false,
     thu: false,
     fri: false,
-    sat: false
+    sat: false,
+    id: undefined
 }
 
 export interface Class {
@@ -30,15 +32,7 @@ export interface Class {
     term: string
     year: number,
     CRN: number,
-    days: {
-        sun: boolean,
-        mon: boolean,
-        tue: boolean,
-        wed: boolean,
-        thu: boolean,
-        fri: boolean,
-        sat: boolean
-    }
+    days: Week
     syllabus: number
     time: Date
     length: number,
@@ -93,8 +87,8 @@ function class_to_DB(c: Class, course: number, department: number) {
         section: c.section,
         CRN: c.CRN,
         syl_id: c.syllabus,
-        day_id: 1,
-        day_time: c.time.toJSON(),
+        day_id: 3,
+        day_time: "2000-01-01T00:00:00.000Z",
         day_len: c.length
     }
 }
@@ -102,7 +96,7 @@ function class_to_DB(c: Class, course: number, department: number) {
 export function addClassRequest(class_: Class, department: number, course: number): Promise<boolean> {
     let args = "?"
     let db: any = class_to_DB(class_, course, department);
-    Object.keys(db).forEach(key => args += `&${key}=${encodeURIComponent(db[key])}`)
+    Object.keys(db).forEach(key => args += `${key}=${encodeURIComponent(db[key])}&`)
     return fetch(config.api + "/class_add" + args)
     .then(r => r.text())
     .then(text => text == "Added Class")

@@ -6,12 +6,10 @@ export interface Week {
     wed: boolean,
     thu: boolean,
     fri: boolean,
-    sat: boolean
+    sat: boolean,
+    id: number
 }
 
 export interface Days {
     [id: number]: Week
 }
-
-
-

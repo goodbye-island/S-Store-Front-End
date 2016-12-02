@@ -97,6 +97,7 @@ function db_to_class(c: ClassDB): ClassXCourse {
                 thu: c.Class_Day.includes("Th"),
                 fri: c.Class_Day.includes("F"),
                 sat: c.Class_Day.includes("S"),
+                id: c.Class_ID
             },
         title: c.Course_Title,
         course: c.Class_ID,
@@ -148,6 +149,7 @@ export function update(api: string) {
         .then(json =>
             (json as ClassDB[]).forEach(
                 c => {
+                    console.log(c)
                     dispatch(addClass(db_to_class(c)))
                 }
             )
