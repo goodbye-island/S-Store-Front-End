@@ -69,7 +69,7 @@ function terms(state: Terms = {}, action: SetTermAction) {
     return  state
 }
 
-function teachers(state: User[] = [], action: SetTeachersAction){
+function teachers(state: User[] = null, action: SetTeachersAction){
     switch(action.type) {
         case SET_TEACHERS:
             return action.teachers

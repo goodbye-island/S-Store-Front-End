@@ -7,6 +7,7 @@ import {IntInput} from '../utilities/int-input'
 
 import {DepartmentDropdown} from '../department-dropdown'
 import {TermDropdown} from '../term-dropdown'
+import {TeacherDropdown} from '../teacher-dropdown'
 
 
 export interface ClassFilterInputProps {
@@ -52,6 +53,7 @@ export class ClassFilterInput extends React.Component<ClassFilterInputProps, Fil
                         this.setState({section: section});
                         this.props.onChange(objectAssign({}, this.state, {section: section}));
                     }}/>
+                    <TeacherDropdown label="Teacher" onChange={ (id, t) => console.log(id, t)}/>
                 </div>
     }
 }
