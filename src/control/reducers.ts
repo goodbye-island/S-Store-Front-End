@@ -8,18 +8,22 @@ import * as objectAssign from 'object-assign'
 import { User } from './user'
 import { Terms, SetTermAction } from './terms'
 
+import { SET_TEACHERS, SetTeachersAction } from './teacher'
+
 export interface State {
     classes: Class[],
     departments: { [id: number]: {title: string, abbreviation: string}},
     user: User,
-    terms: Terms
+    terms: Terms,
+    teachers: User[]
 }
 
 export const sStore = combineReducers({
     classes,
     departments,
     user,
-    terms
+    terms,
+    teachers,
 })
 
 function user(state: User = {googleOauth: null, role: Roles.student, userId: undefined, firstName: undefined, lastName: undefined, honorific: undefined}, action: SetOauthAction|SetUserAction): User {
@@ -63,4 +67,12 @@ function terms(state: Terms = {}, action: SetTermAction) {
             return action.terms
     }
     return  state
+}
+
+function teachers(state: User[] = [], action: SetTeachersAction){
+    switch(action.type) {
+        case SET_TEACHERS:
+            return action.teachers
+    }
+    return state;
 }

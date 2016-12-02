@@ -5,6 +5,15 @@ export enum Roles {
     admin
 }
 
+export interface UserDB {
+    User_ID: number, 
+    Email: string,
+    First_Name: string, 
+    Last_Name: string, 
+    Role: Roles,
+    Honorific: string
+}
+
 export interface User {
     googleOauth?: {
         token: string,
