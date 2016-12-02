@@ -1,4 +1,5 @@
 import { User } from './user'
+import config from '../config'
 
 export enum Days {
     sun = 1,
@@ -41,7 +42,7 @@ export interface Class {
     syllabus: number
     time: Date
     length: number,
-    teacher: User,
+    teacher?: User,
     lab_day?: Days
     lab_time?: Date
     lab_length?: number
@@ -80,4 +81,30 @@ export function to_courses(classes: ClassXCourse[]): Course[] {
             )
         ).forEach( a => a.forEach( c => result.push(c) ) );
     return result
+}
+
+function class_to_DB(c: Class, course: number, department: number) {
+    return {
+        "class_id": course,
+        "dept_id": department,
+        term_id: c.semester,
+        year: c.year,
+        teacher_id: c.teacher?c.teacher.userId:undefined,
+        section: c.section,
+        CRN: c.CRN,
+        syl_id: c.syllabus,
+        day_id: 1,
+        day_time: c.time.toJSON(),
+        day_len: c.length
+    }
+}
+
+export function addClassRequest(class_: Class, department: number, course: number): Promise<boolean> {
+    let args = "?"
+    let db: any = class_to_DB(class_, course, department);
+    Object.keys(db).forEach(key => args += `&${key}=${encodeURIComponent(db[key])}`)
+    return fetch(config.api + "/class_add" + args)
+    .then(r => r.text())
+    .then(text => text == "Added Class")
+    .catch( e => {console.log(e); return false;})
 }
