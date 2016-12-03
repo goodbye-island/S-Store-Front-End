@@ -11,7 +11,7 @@ export interface SetTermAction extends Redux.Action {
 interface TermDB {"Term_ID":number,"Term": string}
 
 export function fetchTerms(): Promise<Terms>{
-    return fetch(config.api+"/class_view")
+    return fetch(config.api+"/term_view")
     .then(response => response.json())
     .then(json => json as TermDB[])
     .then(terms => terms.reduce<Terms>((terms, t) => {terms[t.Term_ID] = t.Term; return  terms}, {}))
