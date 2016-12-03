@@ -17,9 +17,6 @@ export const CourseAdd = connect( (state: State) => ({user: state.user}))
 (class extends React.Component<CourseAdd, {}> {
     state: Course = {title: "", course: undefined, department: undefined, keyword: "", description: "", classes: []}
     render() {
-        if (this.props.user.role === Roles.student || this.props.user.role === Roles.teacher) {
-            return <div/>
-        }
         return <form className="" onSubmit={
             e => {
                 e.preventDefault()
