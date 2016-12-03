@@ -28,7 +28,7 @@ export const ClassView = connect( (state: State, props: ClassProps) => ({class_:
     constructor(props: ConnectedClass) {
         super(props);
         console.log(props.dispatch)
-        props.dispatch(newFilter({"CRN": props.CRN}, config.api)) 
+        props.dispatch(newFilter({"CRN": props.CRN}, config.api+"/class_view")) 
     }
     render() {
         if (!this.props.class_) {

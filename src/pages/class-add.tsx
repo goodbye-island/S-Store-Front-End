@@ -16,6 +16,8 @@ import { State } from '../control/reducers'
 import { name } from '../control/user'
 
 import { addClassRequest } from '../control/class'
+import { addSyllabusRequest } from '../control/syllabus'
+
 import config from '../config'
 
 export interface ClassProps {
@@ -28,18 +30,23 @@ export interface ConnectedClass {
     dispatch: (action: any) => void
 }
 
+interface ClassAddState extends Class{
+    file: Blob
+}
+
 export const ClassAdd = connect( 
     (state: State, props: ClassProps) => ({
         dep: parseInt(Object.keys(state.departments).find((key: any) => state.departments[key as number].abbreviation === props.params.dep)), 
         course_num: parseInt(props.params.course_num)
     }))
 (class extends React.Component<ConnectedClass, {}> {
-    state: Class = {
+    state: ClassAddState = {
                         year: undefined, // done
                         semester: undefined, //done
                         section: undefined, //done
                         term: undefined, //doen
                         CRN: undefined, // done
+                        file: undefined,
                         days: FREE_WEEK, 
                         syllabus: undefined, 
                         time: undefined, 
@@ -55,13 +62,24 @@ export const ClassAdd = connect(
                     <form onSubmit={
                         e => {
                             e.preventDefault();
+                            console.log(this.state.file)
                             addClassRequest(this.state, this.props.dep, this.props.course_num)
+                            .then(e =>
+                                addSyllabusRequest(this.state.file, this.props.course_num, this.props.dep, this.state.semester, this.state.year,
+                                this.state.section))
                             .then(
-                                e => console.log(e)
+                                e => {
+                                    console.log(e)
+                                    //location.assign(location.protocol + '//' + location.host) ;
+                                }
                             )
                         }
                     }>
-                        <input type="file"/>
+                        <input type="file" onChange={
+                            (e: any) => {
+                                this.setState({file: e.target.files[0]})
+                            }
+                        }/>
                         <IntInput label="Year" onChange={year => {
                             if (isNaN(year) || year <= 1900) {
                                 year = undefined;
@@ -94,7 +112,6 @@ export const ClassAdd = connect(
                         }}/>
                         <TeacherDropdown label="Teacher" onChange={
                             (id, teacher) => {
-                                console.log(teacher)
                                 this.setState({teacher: teacher})
                             }
                         }/>
