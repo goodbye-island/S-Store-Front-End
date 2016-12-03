@@ -8,7 +8,7 @@ import {Input} from '../utilities/input'
 import {IntInput} from '../utilities/int-input'
 
 import {DepartmentDropdown} from '../department-dropdown'
-import {Week} from "../utilities/week-view"
+import {WeekView} from "../utilities/week-view"
 
 export interface ClassAdd {
     user: User,
@@ -48,7 +48,7 @@ export const ClassAdd = connect( (state: State) => ({user: state.user}))
                         <IntInput value={this.state.CRN} label="CRN"  onChange={v => this.setState({CRN: v})} />
                     </td>
                     <td>
-                        <Week days={this.state.days}/>
+                        <WeekView days={this.state.days}/>
                     </td>
                     <td>
                         <Input value={this.state.CRN} label="Start"  onChange={v => this.setState({start: new Date(v)})} />

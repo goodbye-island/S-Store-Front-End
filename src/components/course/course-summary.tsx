@@ -3,7 +3,7 @@ import {ClassXCourse, Course} from "../../control/class"
 import {Toggle} from "../utilities/toggle"
 import {ClassList} from "../class/class-list"
 import {Department} from "../department"
-import {Week} from "../utilities/week-view"
+import {WeekView} from "../utilities/week-view"
 export interface CourseSummaryProps {
     classes: ClassXCourse[],
     course: Course

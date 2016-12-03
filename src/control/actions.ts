@@ -149,7 +149,6 @@ export function update(api: string) {
         .then(json =>
             (json as ClassDB[]).forEach(
                 c => {
-                    console.log(c)
                     dispatch(addClass(db_to_class(c)))
                 }
             )

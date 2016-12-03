@@ -9,12 +9,13 @@ import {TimeInput} from '../components/utilities/time-input'
 import {DepartmentDropdown} from '../components/department-dropdown'
 import {TermDropdown} from '../components/term-dropdown'
 import {TeacherDropdown} from '../components/teacher-dropdown'
+import {DaysDropdown} from "../components/days-dropdown"
 
 import { connect } from 'react-redux'
 import { State } from '../control/reducers'
 import { name } from '../control/user'
 
-import { newFilter } from '../control/actions'
+import { addClassRequest } from '../control/class'
 import config from '../config'
 
 export interface ClassProps {
@@ -22,12 +23,16 @@ export interface ClassProps {
 }
 
 export interface ConnectedClass {
-    dep: string,
+    dep: number,
     course_num: number,
     dispatch: (action: any) => void
 }
 
-export const ClassAdd = connect( (state: State, props: ClassProps) => ({dep: props.params.dep, course_num: parseInt(props.params.course_num)}))
+export const ClassAdd = connect( 
+    (state: State, props: ClassProps) => ({
+        dep: parseInt(Object.keys(state.departments).find((key: any) => state.departments[key as number].abbreviation === props.params.dep)), 
+        course_num: parseInt(props.params.course_num)
+    }))
 (class extends React.Component<ConnectedClass, {}> {
     state: Class = {
                         year: undefined, // done
@@ -47,7 +52,15 @@ export const ClassAdd = connect( (state: State, props: ClassProps) => ({dep: pro
     }
     render() {
         return  <div style={{height: "100%"}}>
-                    <form>
+                    <form onSubmit={
+                        e => {
+                            e.preventDefault();
+                            addClassRequest(this.state, this.props.dep, this.props.course_num)
+                            .then(
+                                e => console.log(e)
+                            )
+                        }
+                    }>
                         <input type="file"/>
                         <IntInput label="Year" onChange={year => {
                             if (isNaN(year) || year <= 1900) {
@@ -56,7 +69,7 @@ export const ClassAdd = connect( (state: State, props: ClassProps) => ({dep: pro
                             this.setState({year: year});
                         }}/>
                         <TermDropdown onChange={(term_id, term) => {
-                                this.setState({semester: term})
+                            this.setState({semester: term_id})
                         }} label="Semester"/>
                         <IntInput label="Section" onChange={section => {
                             if (isNaN(section)) {
@@ -78,11 +91,17 @@ export const ClassAdd = connect( (state: State, props: ClassProps) => ({dep: pro
                         }}/>
                         <TimeInput label="Time" onChange={time => {
                             this.setState({time: time});
-                            console.log(time)
                         }}/>
                         <TeacherDropdown label="Teacher" onChange={
-                            (id, teacher) => this.setState({teacher: teacher})
+                            (id, teacher) => {
+                                console.log(teacher)
+                                this.setState({teacher: teacher})
+                            }
                         }/>
+                        <DaysDropdown label="Schedule" onChange={
+                            (id, week) => this.setState({days: week})
+                        }/>
+                        <input type="submit"/>
                     </form>
                 </div>
     }

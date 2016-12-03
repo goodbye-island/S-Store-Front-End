@@ -9,13 +9,15 @@ import { User } from './user'
 import { Terms, SetTermAction } from './terms'
 
 import { SET_TEACHERS, SetTeachersAction } from './teacher'
+import { Days, SetDaysAction, SET_DAYS } from "./days"
 
 export interface State {
     classes: Class[],
     departments: { [id: number]: {title: string, abbreviation: string}},
     user: User,
     terms: Terms,
-    teachers: User[]
+    teachers: User[],
+    days: Days
 }
 
 export const sStore = combineReducers({
@@ -24,6 +26,7 @@ export const sStore = combineReducers({
     user,
     terms,
     teachers,
+    days,
 })
 
 function user(state: User = {googleOauth: null, role: Roles.student, userId: undefined, firstName: undefined, lastName: undefined, honorific: undefined}, action: SetOauthAction|SetUserAction): User {
@@ -76,3 +79,11 @@ function teachers(state: User[] = null, action: SetTeachersAction){
     }
     return state;
 }
+
+function days(state: Days = null, action: SetDaysAction) {
+    switch(action.type) {
+        case SET_DAYS:
+            return action.days
+    }
+    return state
+} 

@@ -87,8 +87,8 @@ function class_to_DB(c: Class, course: number, department: number) {
         section: c.section,
         CRN: c.CRN,
         syl_id: c.syllabus,
-        day_id: 3,
-        day_time: "2000-01-01T00:00:00.000Z",
+        day_id: c.days.id,
+        day_time:  c.time.toJSON(),
         day_len: c.length
     }
 }

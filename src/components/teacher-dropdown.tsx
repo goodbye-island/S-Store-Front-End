@@ -29,7 +29,7 @@ export const TeacherDropdown = connect((state: State, props: TeacherDropdownProp
     }
     return  <DropdownStringInputInt label={props.label} onChange = {
                 (id) => {
-                    props.onChange(id, id?teachers[id]:undefined);
+                    props.onChange(id, id!==undefined?teachers[id]:undefined);
                 }
             } options = {Object.keys(teachers).map(key => {
                 let id = parseInt(key);

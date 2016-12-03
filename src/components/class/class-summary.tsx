@@ -3,7 +3,7 @@ import {ClassXCourse} from "../../control/class"
 import config from "../../config"
 import { name } from "../../control/user"
 
-import {Week} from "../utilities/week-view"
+import {WeekView} from "../utilities/week-view"
 export interface ClassSummaryProps {
     class_: ClassXCourse
 }
@@ -26,7 +26,7 @@ export class ClassSummary extends React.Component<ClassSummaryProps, {}> {
                         {this.props.class_.CRN}
                     </td>
                     <td>
-                        <Week days={this.props.class_.days}/>
+                        <WeekView days={this.props.class_.days}/>
                     </td>
                     <td>
                         {this.props.class_.time.toLocaleTimeString()}

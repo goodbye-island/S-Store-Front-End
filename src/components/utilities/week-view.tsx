@@ -1,7 +1,7 @@
 import * as React from "react";
 
 
-export function Week(props: {days: {
+export function WeekView(props: {days: {
         sun: boolean,
         mon: boolean,
         tue: boolean,
