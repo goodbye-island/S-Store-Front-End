@@ -93,6 +93,15 @@ function class_to_DB(c: Class, course: number, department: number) {
     }
 }
 
+function course_to_DB(course: Course) {
+    return {
+        class_id: course.course,
+        dept_id: course.department,
+        course_title: course.title,
+        description: course.description
+    }
+}
+
 export function addClassRequest(class_: Class, department: number, course: number): Promise<boolean> {
     let args = "?"
     let db: any = class_to_DB(class_, course, department);
@@ -100,5 +109,15 @@ export function addClassRequest(class_: Class, department: number, course: numbe
     return fetch(config.api + "/class_add" + args)
     .then(r => r.text())
     .then(text => text == "Added Class")
+    .catch( e => {console.log(e); return false;})
+}
+
+export function addCourseRequest(course: Course) {
+    let args = "?"
+    let db: any = course_to_DB(course);
+    Object.keys(db).forEach(key => args += `${key}=${encodeURIComponent(db[key])}&`)
+    return fetch(config.api + "/course_add" + args)
+    .then(r => r.text())
+    .then(text => text == "Added Course")
     .catch( e => {console.log(e); return false;})
 }

@@ -5,6 +5,7 @@ import {Login} from "./pages/login"
 import {About} from "./pages/about"
 import {ClassView} from "./pages/class"
 import {ClassAdd} from "./pages/class-add"
+import {CourseAdd} from "./pages/course-add"
 
 import {Layout} from "./components/layout/layout"
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
@@ -21,7 +22,6 @@ let store = createStore(sStore, applyMiddleware(thunkMiddleware))
 
 store.dispatch(setUserAction(Roles.admin, "", "", "", undefined))
 
-
 store.dispatch(update(config.api))
 
 ReactDOM.render(
@@ -32,6 +32,7 @@ ReactDOM.render(
                 <Route path="/login" component={Login}/>
                 <Route path="/class/:CRN" component={ClassView}/>
                 <Route path="/class/add/:dep/:course_num" component={ClassAdd}/>
+                <Route path="/course/add/" component={CourseAdd}/>
 
                 <IndexRoute component={Search}/>
             </Route>
