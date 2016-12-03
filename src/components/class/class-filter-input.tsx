@@ -30,10 +30,16 @@ export class ClassFilterInput extends React.Component<ClassFilterInputProps, Fil
                         this.props.onChange(objectAssign({}, this.state, {year: year}));
                     }}/>
                     <TermDropdown onChange={(term_id, term) => {
-                            console.log("here", term)
                             this.setState({semester: term})
                             this.props.onChange(objectAssign({}, this.state, {semester: term}));
                     }} label="Semester"/>
+                    <IntInput label="CRN" onChange={CRN => {
+                        if (isNaN(CRN)) {
+                            CRN = undefined;
+                        }
+                        this.setState({course: CRN});
+                        this.props.onChange(objectAssign({}, this.state, {CRN: CRN}));
+                    }}/>
                     <br/>
                     <DepartmentDropdown onChange={department => {
                             this.setState({department: department})

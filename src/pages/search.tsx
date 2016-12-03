@@ -30,7 +30,6 @@ export const Search = connect( (state: State) => ({classes: state.classes}), (di
                             }
                         } />
                         <CourseList courses={to_courses(this.props.classes.filter(filter(this.state.filter)))} />
-                        <CourseAdd />
                     </div>
                 </div>
     }
