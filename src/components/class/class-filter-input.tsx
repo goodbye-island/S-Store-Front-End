@@ -40,7 +40,6 @@ export class ClassFilterInput extends React.Component<ClassFilterInputProps, Fil
                         this.setState({course: CRN});
                         this.props.onChange(objectAssign({}, this.state, {CRN: CRN}));
                     }}/>
-                    <br/>
                     <DepartmentDropdown onChange={department => {
                             this.setState({department: department})
                             this.props.onChange(objectAssign({}, this.state, {department: department}));

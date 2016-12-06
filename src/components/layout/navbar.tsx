@@ -14,7 +14,7 @@ export class Navbar extends React.Component<NavbarProps, {}> {
         let items = this.props.items.map( (item, i) => {
             return <li key={i} style={{display: "block", paddingRight: 15, float: "left", height: height}}>{item}</li>
         })
-        return  <div style={{width: "100%", height: height, background: "#002664", color: "white", boxShadow: "0 5px 5px rgba(0,0,0,0.5)"}} className="navbar">
+        return  <div style={{width: "100%", height: height, background: "#002664", color: "white", boxShadow: "0 5px 5px rgba(0,0,0,0.5)", position: "absolute", top: 0}} className="navbar">
                     <Link to="/" style={{display: "inline-block", height: height}}>
                         {this.props.title}
                     </Link>

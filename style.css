@@ -4,6 +4,7 @@ body, html, #react, #react > div {
     height: 100%;
 }
 
+
 #react > div {
     position: relative;
 }
@@ -11,14 +12,33 @@ div {
     box-sizing: border-box;
 }
 
+.title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.content {
+    width: 70%;
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+body {
+    background-color: #f1f1f1;
+}
+
+
 .dropdown {
     position: absolute;
     font-size: 13.3333px;
     top: 29px;
     max-height: 30em;
     overflow: auto;
-    width: 300px;
-    background-color: rgb(212, 212, 212);
+    width: 100%;
+    background-color: white;
+    border: 1px solid rgba(0,0,0,.15);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
     padding: 7px;
 }
 .float-label {
@@ -116,20 +136,7 @@ th {
     cursor: pointer;
 }
 
-.filter .float-label {
+.float-label {
     margin-top: 20px;
     display: inline-block;
-}
-
-.class-add input {
-    width: 100%;
-}
-
-.class-add td {
-    display: table-cell;
-    padding: 0;
-}
-
-.class-add div {
-    display: table-cell;
 }

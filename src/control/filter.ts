@@ -11,7 +11,8 @@ export interface Filter {
     year?: number,
     teacher?: string,
     CRN?: number,
-    keyword?: string
+    keyword?: string,
+    syllabus?: boolean,
     [field: string]: any;
 }
 
@@ -29,6 +30,16 @@ export function filter(filter: Filter) {
         let teacher_valid = filter.teacher === undefined || name(course.teacher).toLowerCase().indexOf(filter.teacher.toLowerCase()) >= 0;
         let CRN_valid = filter.CRN === undefined || course.CRN === filter.CRN;
         let keyword_valid = filter.keyword === undefined || course.keyword.toLowerCase().indexOf(filter.keyword.toLowerCase()) >= 0;
-        return title_valid && course_valid && department_valid && section_valid && semester_valid && year_valid && teacher_valid && CRN_valid && keyword_valid;
+        let syllabus_valid = filter.syllabus === undefined || (course.syllabus === undefined || course.syllabus == 0) === filter.syllabus;
+        return  title_valid && 
+                course_valid && 
+                department_valid && 
+                section_valid && 
+                semester_valid && 
+                year_valid && 
+                teacher_valid && 
+                CRN_valid && 
+                keyword_valid &&
+                syllabus_valid;
     }
 }
