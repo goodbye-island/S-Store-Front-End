@@ -60,7 +60,7 @@ export const ClassAdd = connect(
         console.log(props.dispatch)
     }
     render() {
-        return  <div style={{height: "100%"}}>
+        return  <div className="class-add">
                     <form onSubmit={
                         e => {
                             e.preventDefault();
@@ -90,11 +90,6 @@ export const ClassAdd = connect(
                             )
                         }
                     }>
-                        <input type="file" onChange={
-                            (e: any) => {
-                                this.setState({file: e.target.files[0]})
-                            }
-                        }/>
                         <IntInput label="Year" onChange={year => {
                             if (isNaN(year) || year <= 1900) {
                                 year = undefined;
@@ -132,6 +127,11 @@ export const ClassAdd = connect(
                         }/>
                         <DaysDropdown label="Schedule" onChange={
                             (id, week) => this.setState({days: week})
+                        }/>
+                        <input accept="application/pdf" name="Syllabus Upload" type="file" onChange={
+                            (e: any) => {
+                                this.setState({file: e.target.files[0]})
+                            }
                         }/>
                         <input type="submit"/>
                     </form>

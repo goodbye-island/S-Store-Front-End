@@ -17,15 +17,15 @@ export class DropdownInput<T extends React.Key> extends React.Component<Dropdown
         })
     }
     render() {
-        let dropdown = this.props.options.map(
+        let dropdown = this.props.options.filter(i=>i.id!=this.state.selected).map(
             (option) => <div key={option.id} onClick={e => {
                 console.log(e)
                 this.props.onChange(option.id)
                 this.setState({selected: option.id})
             }}>{option.value}</div>
         )
-        return  <div style={{position: "relative"}} className={this.props.class+" float-label"}>
-                    <div onClick={e => (e.nativeEvent as any).dropdown = this}>
+        return  <div style={{position: "relative"}} className={this.props.class+" dropdown-simple float-label"}>
+                    <div onClick={e => (e.nativeEvent as any).dropdown = this} className="selected">
                         {this.state.selected?this.props.options.find(o=>o.id==this.state.selected).value:"Schedule"}
                     </div>
                     { (() => {
