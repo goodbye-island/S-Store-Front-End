@@ -8,11 +8,14 @@ import {IntInput} from '../utilities/int-input'
 import {DepartmentDropdown} from '../department-dropdown'
 import {TermDropdown} from '../term-dropdown'
 import {TeacherDropdown} from '../teacher-dropdown'
+import {DropdownInput} from '../utilities/dropdown'
 
 
 export interface ClassFilterInputProps {
     onChange: (filter: Filter) => void,
 }
+
+class DropdownInputNumber extends DropdownInput<number>{}
 
 export class ClassFilterInput extends React.Component<ClassFilterInputProps, Filter> {
     state: Filter = {}
@@ -59,6 +62,19 @@ export class ClassFilterInput extends React.Component<ClassFilterInputProps, Fil
                         this.props.onChange(objectAssign({}, this.state, {section: section}));
                     }}/>
                     <TeacherDropdown label="Teacher" onChange={ (id, t) => console.log(id, t)}/>
+                    <DropdownInputNumber label="Syllabus" options={[{value: <div>Yes</div>, id: 1}, {value: <div>No</div>, id: 3}, {value: <div>Doesn't Matter</div>, id: 2}]} onChange={ (id) => {
+                        let syllabus: boolean = undefined
+                        if (id == 3) {
+                            syllabus = false;
+                        } else if (id == 1) {
+                            syllabus = true;
+                        };
+                        this.setState({syllabus: syllabus})
+                        console.log(syllabus)
+                        this.props.onChange(objectAssign({}, this.state, {syllabus: syllabus}));
+
+                    }}/>
+
                 </div>
     }
 }

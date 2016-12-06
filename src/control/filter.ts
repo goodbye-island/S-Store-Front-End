@@ -19,7 +19,6 @@ export interface Filter {
 
 // The ugliest thing you will ever see. Check every item in the filter and if it exists check if it matches
 export function filter(filter: Filter) {
-    console.log(filter.semester)
     return function(course: ClassXCourse) {
         let title_valid = filter.title === undefined || course.title.toLowerCase().indexOf(filter.title.toLowerCase()) >= 0;
         let course_valid = filter.course === undefined || course.course === filter.course;
@@ -30,7 +29,8 @@ export function filter(filter: Filter) {
         let teacher_valid = filter.teacher === undefined || name(course.teacher).toLowerCase().indexOf(filter.teacher.toLowerCase()) >= 0;
         let CRN_valid = filter.CRN === undefined || course.CRN === filter.CRN;
         let keyword_valid = filter.keyword === undefined || course.keyword.toLowerCase().indexOf(filter.keyword.toLowerCase()) >= 0;
-        let syllabus_valid = filter.syllabus === undefined || (course.syllabus === undefined || course.syllabus == 0) === filter.syllabus;
+        let syllabus_valid = filter.syllabus === undefined || !(course.syllabus == undefined || course.syllabus == 0) === filter.syllabus;
+        console.log(syllabus_valid)
         return  title_valid && 
                 course_valid && 
                 department_valid && 
