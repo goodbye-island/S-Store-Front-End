@@ -20,7 +20,8 @@ div {
 .content {
     width: 70%;
     background-color: white;
-    padding: 30px;
+    padding: 50px;
+    padding-top: 70px;
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
 
@@ -28,6 +29,53 @@ body {
     background-color: #f1f1f1;
 }
 
+h1 {
+    margin: 0;
+}
+
+
+.filter {
+    margin-bottom: 70px;
+    padding: 5px;
+}
+
+.filter > .float-label {
+    width: 32%
+}
+
+.course-list {
+    border-radius: 5px;
+}
+/*
+.course-list .course:nth-child(even) {
+    background-color: gray;
+}
+*/
+
+.course-list .course {
+    padding-bottom: 10px;
+}
+
+.course .toggle {
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.classes {
+    padding-top: 30px;
+}
+
+.class-list {
+    width: 100%
+}
+
+.class-list .class:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.class-list thead {
+    background-color: #bbbbbb
+}
 
 .dropdown {
     position: absolute;
@@ -58,8 +106,8 @@ body {
 .float-label > input {
     padding: 5px;
     border-radius: 2px;
-    width: 300px;
-    box-sizing: content-box;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .float-label > label {
@@ -88,10 +136,6 @@ body {
 
 .course.expanded > h1 {
     transform: translate(-2px, 2px)
-}
-
-.search .course-list {
-    margin-top: 100px;
 }
 
 .week {
@@ -124,12 +168,11 @@ td {
 }
 
 th {
-    padding-bottom: 15px;
+    padding: 10px;
 }
 
 .course .description {
-    width: 25%;
-    float: left;
+    width: 100%;
 }
 
 .link {
@@ -139,4 +182,8 @@ th {
 .float-label {
     margin-top: 20px;
     display: inline-block;
+}
+
+table {
+    border-collapse: collapse;
 }

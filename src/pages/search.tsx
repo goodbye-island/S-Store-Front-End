@@ -22,7 +22,7 @@ export const Search = connect( (state: State) => ({classes: state.classes}), (di
     state: {filter: Filter} = {filter: {}}
     render() {
         return  <div className="search">
-                    <h1>Courses</h1>
+                    <h1 style={{textAlign: "center", fontSize: "60"}}>Class Search</h1>
                     <div>
                         <ClassFilterInput onChange={f => {
                                 this.setState({filter: f});
