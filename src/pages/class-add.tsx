@@ -31,7 +31,9 @@ export interface ConnectedClass {
 }
 
 interface ClassAddState extends Class{
-    file: Blob
+    file: Blob,
+    error?: JSX.Element|string,
+    result?: JSX.Element|string
 }
 
 export const ClassAdd = connect( 
@@ -64,13 +66,26 @@ export const ClassAdd = connect(
                             e.preventDefault();
                             console.log(this.state.file)
                             addClassRequest(this.state, this.props.dep, this.props.course_num)
-                            .then(e =>
-                                addSyllabusRequest(this.state.file, this.props.course_num, this.props.dep, this.state.semester, this.state.year,
-                                this.state.section))
+                            .then(e => {
+                                if (e) {
+                                    this.setState({error: null, result: "Added Class Successfully"})
+                                } else {
+                                        this.setState({error: "Couldn't add the class", result: null})
+                                }
+                                if (this.state.file) {
+                                    return addSyllabusRequest(this.state.file, this.props.course_num, this.props.dep, this.state.semester, this.state.year,
+                                    this.state.section)
+                                } else {
+                                    Promise.resolve()
+                                }
+                            })
                             .then(
-                                e => {
-                                    console.log(e)
-                                    //location.assign(location.protocol + '//' + location.host) ;
+                                (e: any) => {
+                                    if (e === false) {
+                                        this.setState({error: "Couldn't send syllabus"})
+                                    } else if(e === true){
+                                        this.setState({error: null, result: "Added Class and Syllabus Successfully"})
+                                    }
                                 }
                             )
                         }
@@ -120,6 +135,12 @@ export const ClassAdd = connect(
                         }/>
                         <input type="submit"/>
                     </form>
+                    <div className="error">
+                        {this.state.error}
+                    </div>
+                    <div className="result">
+                        {this.state.result}
+                    </div>
                 </div>
     }
 })
