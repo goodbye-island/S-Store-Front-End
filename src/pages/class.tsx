@@ -2,6 +2,7 @@ import * as React from "react";
 import {ClassXCourse} from "../control/class"
 import {PdfView} from "../components/utilities/pdf-view"
 import {Department} from "../components/department"
+import {ClassSummary} from "../components/class/class-summary"
 
 import { connect } from 'react-redux'
 import { State } from '../control/reducers'
@@ -46,16 +47,29 @@ export const ClassView = connect( (state: State, props: ClassProps) => ({class_:
                         <span> </span>
                         <span className="term">({this.props.class_.term}-{this.props.class_.year})</span>
                     </h1>
-                    <div style={{float: "left", width: "50%", height: "34.7vw"}}>
+                    <div style={{float: "left", width: "100%", height: "69.4vw"}}>
                         <PdfView pdf={config.api + "/syllabus_view?SyllaID=" + this.props.class_.syllabus} />
                     </div>
-                    <div style={{float: "right", width: "50%", height: "100%", padding: "10px"}}>
+                    <div>
                         <div>
                             {this.props.class_.description}
                         </div>
-                        <div>
-                            {name(this.props.class_.teacher)}
-                        </div>
+                        <table className="class-list">
+                            <thead>
+                                <tr>
+                                    <th>Instructor</th>
+                                    <th>Section</th>
+                                    <th>Semester</th>
+                                    <th>CRN</th>
+                                    <th>Days</th>
+                                    <th>Time</th>
+                                    <th>Length</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ClassSummary class_={this.props.class_}/>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
     }
